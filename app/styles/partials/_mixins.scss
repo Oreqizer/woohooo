@@ -1,0 +1,59 @@
+// Home:
+
+@mixin home-member($color: white) {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transition: border 0.5s;
+  border: solid 15px $color;
+}
+
+@mixin home-member-topleft($color: white) {
+  &:before {
+    top: 0;
+    left: 0;
+    @include home-member($color);
+    border-bottom: none;
+    border-right: none;
+  }
+}
+
+@mixin home-member-topright($color: white) {
+  &:before {
+    top: 0;
+    right: 0;
+    @include home-member($color);
+    border-bottom: none;
+    border-left: none;
+  }
+}
+
+@mixin home-member-botleft($color: white) {
+  &:before {
+    bottom: 0;
+    left: 0;
+    @include home-member($color);
+    border-top: none;
+    border-right: none;
+  }
+}
+
+@mixin home-member-botright($color: white) {
+  &:before {
+    bottom: 0;
+    right: 0;
+    @include home-member($color);
+    border-top: none;
+    border-left: none;
+  }
+}
+
+@mixin home-member-hover() {
+  &:hover {
+    &:before {
+      border-width: 30px;
+    }
+  }
+}
