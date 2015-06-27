@@ -16,9 +16,6 @@
   overflow: hidden;
   
   &:hover {
-    .woohooo-img {
-      filter: blur(5px);
-    }
     .woohooo-img-hover {
       opacity: 1;
     }
@@ -44,7 +41,7 @@
 
 .woohooo-img-hover {
   opacity: 0;
-  background: transparentize(white, .5);
+  background: transparentize(white, .3);
   
   > a {
     position: relative;
