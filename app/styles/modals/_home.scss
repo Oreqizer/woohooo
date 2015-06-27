@@ -1,77 +1,172 @@
-.home {
+// Main:
+#menu {
+  display: none;
+}
+
+.home,
+#panel {
   width: 100%;
   height: 100%;
 }
 
-.member {
-  position: absolute;
-  width: 50%;
-  height: 33%;
-  border: solid 2px white;
+// Woohooo:
+#woohooo {
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
   
-  @include susy-breakpoint ($medium) {
-    height: 50%;
+  &:hover {
+    .woohooo-img {
+      filter: blur(5px);
+    }
+    .woohooo-img-hover {
+      opacity: 1;
+    }
   }
 }
 
-#woohooo {
+.woohooo-img,
+.woohooo-img-hover {
+  position: absolute;
+  height: 50%;
   width: 100%;
-  height: 34%;
-  top: 33%;
-  background: white;
-  
-  @include susy-breakpoint ($medium) {
-    height: 50%;
-    width: 50%;
-    top: 25%;
-    left: 25%;
-  }
+  transition: all .5s ease;
 }
 
 .woohooo-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transition: all 1s ease;
+  border: solid 2px black;
   background: {
-    image: url("../images/car-bg.png");
-    size: 120% auto;
-    position: center top;
+    image: url("../images/car-cover-wide.jpg");
+    size: cover;
+    position: center 75%;
+  }
+}
+
+.woohooo-img-hover {
+  opacity: 0;
+  background: transparentize(white, .5);
+  
+  > a {
+    position: relative;
+    display: block;
+    top: 50%;
+    margin-top: -50px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 2.9em;
+    text-decoration: none;
+    color: #000;
+    text-shadow: 2px 2px 5px transparentize(#000, .5);
+    
+    @include susy-media($m) {
+      font-size: 5em;
+    }
+    
+    @include susy-media($l) {
+      font-size: 7em;
+    }
+    
+    &:hover {
+      color: #F00;
+    }
+  }
+}
+
+// Members:
+.member {
+  height: 25%;
+  width: 50%;
+  float: left;
+  border: solid 2px black;
+  overflow: hidden;
+  
+  > .img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: opacity .5s ease, transform .5s ease;
+    opacity: .3;
+  }
+  
+  > .name {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100px;
+    top: -50px;
+    text-align: center;
+    font-size: 2em;
+    color: #FFF;
+    transition: all .5s ease;
   }
   
   &:hover {
-    -webkit-filter: blur(5px);
+    > .img {
+      opacity: 1;
+      transform: scale(1.1);
+      transition: opacity .5s ease, transform 15s;
+    }
+
+    > .name {
+      opacity: 0;
+    }
+  }
+  
+  @include susy-media($ml) {
+    height: 50%;
+    width: 25%;
+    
+    > .name {
+      top: -80px;
+      font-size: 2.8em;
+    }
+  }
+  
+  @include susy-media($l) {
+    > .name {
+      top: -100px;
+      font-size: 4em;
+    }
   }
 }
 
 #nina {
-  top: 0;
-  left: 0;
-  
-  @include home-member-topleft(red);
-  @include home-member-hover();
+  > .img {
+    background: {
+      image: url("../images/nina.jpg");
+      size: cover;
+      position: center 10%;
+    } 
+  }
 }
 
 #veronika {
-  top: 0;
-  right: 0;
-  
-  @include home-member-topright(red);
-  @include home-member-hover();
+  > .img {
+    background: {
+      image: url("../images/veronika.jpg");
+      size: cover;
+      position: center 10%;
+    } 
+  }
 }
 
 #anita {
-  bottom: 0;
-  left: 0;
-  
-  @include home-member-botleft(red);
-  @include home-member-hover();
+  > .img {
+    background: {
+      image: url("../images/anita.jpg");
+      size: cover;
+      position: center 20%;
+    } 
+  }
 }
 
 #silvia {
-  bottom: 0;
-  right: 0;
-  
-  @include home-member-botright(red);
-  @include home-member-hover();
+  > .img {
+    background: {
+      image: url("../images/silvia.jpg");
+      size: cover;
+      position: center top;
+    } 
+  }
 }
+

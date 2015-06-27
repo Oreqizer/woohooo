@@ -25,16 +25,43 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <div class="home">
-      <div class="member" id="nina"></div>
-      <div class="member" id="veronika"></div>
-      <div class="member" id="anita"></div>
-      <div class="member" id="silvia"></div>
-      <div class="member" id="woohooo">
-        <span class="woohooo-img"></span>
+    
+    <nav class="nav" id="menu">
+      <ul>
+        <li class="nav-item">WOOHOOO</li>
+        <li class="nav-item">NINA</li>
+        <li class="nav-item">VERONIKA</li>
+        <li class="nav-item">ANITA</li>
+        <li class="nav-item">SILVIA</li>
+      </ul>
+    </nav>
+    
+    <main id="panel">
+      <div class="home">
+        <div id="woohooo">
+          <div class="woohooo-img"></div>
+          <div class="woohooo-img-hover">
+            <a href="https://www.facebook.com/woohooofamily?fref=ts">COMING SOON.</a>
+          </div>
+        </div>
+        <div class="member" id="nina">
+          <span class="img"></span>
+          <span class="name">NINA</span>
+        </div>
+         <div class="member" id="veronika">
+          <span class="img"></span>
+          <span class="name">VERONIKA</span>
+        </div>
+        <div class="member" id="anita">
+          <span class="img"></span>
+          <span class="name">ANITA</span>
+        </div>
+        <div class="member" id="silvia">
+          <span class="img"></span>
+          <span class="name">SILVIA</span>
+        </div>
       </div>
-    </div>
+    </main>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -49,10 +76,13 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/emitter-es6/browser/index.js"></script>
+    <script src="/bower_components/slideout.js/dist/slideout.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/vendor/slideout.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

@@ -2,9 +2,13 @@
 @import "bower_components/susy/sass/_susy.scss";
 // endbower
 
+@import "vendor/slideout";
 @import "partials/variables";
 @import "partials/mixins";
+@import "partials/fonts";
 @import "modals/home";
+@import "modals/nav";
+@import "modals/panel";
 
 @include border-box-sizing;
 
@@ -16,6 +20,7 @@ html, body {
   min-width: 320px;
   min-height: 320px;
   background: black;
+  font-family: Exo, Tahoma, serif;
 }
 
 .browserupgrade {
