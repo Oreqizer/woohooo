@@ -1,6 +1,7 @@
 /* jshint devel:true */
-"use strict";
+'use strict';
 
+/* jshint ignore:start */
 $(function() {
   
   // Variables:
@@ -36,3 +37,4 @@ $(function() {
   }
   
 });
+/* jshint ignore:end */

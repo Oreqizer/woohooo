@@ -1,0 +1,1 @@
+"use strict";$(function(){function o(){n=c.height(),i=c.width(),console.log(n+", "+i)}var n,i,c=$(window),t=$(document),e=$("#woohooo");c.on("resize",function(){o()}),c.on("scroll",function(){t.scrollTop()>=n/2?e.hide():e.show()}),o()});
