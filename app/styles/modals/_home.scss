@@ -14,6 +14,7 @@
   height: 50%;
   width: 100%;
   min-width: $page-min-width; // TODO
+  border: solid 2px black;
   overflow: hidden;
 }
 
@@ -26,14 +27,21 @@
 .woohooo-img {
   height: 100%;
   width: 100%;
-  border: solid 2px black;
   background: {
     image: url("../images/car-cover-wide.jpg");
     size: cover;
     position: center 50%;
   }
-  opacity: .8;
   filter: blur(5px);
+  
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: .2;
+  }
 }
 
 .woohooo-img-text {
@@ -70,13 +78,9 @@
   }
 }
 
-// Woohooo touch:
+// Woohooo modernizr:
 
 .touch {
-  .woohooo-img {
-    opacity: .6;  
-  }
-  
   .woohooo-description {
     color: #F00;
   }
@@ -124,13 +128,20 @@
   display: block;
   height: 100%;
   width: 100%;
-  z-index: -1;
+  
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    opacity: .5;
+  }
 }
   
 .member-text {
   position: relative;
   display: block;
-  z-index: 100;
   top: -50%;
   left: 5%;
   color: #FFF;
@@ -211,12 +222,9 @@
   }
 }
 
-// Members touch:
+// Members modernizr:
+
 .touch {
-  .member-img {
-    opacity: .6;
-  }
-  
   .member-description {
     color: #F00;
   }
@@ -225,17 +233,23 @@
 .no-touch {
   .member {
     > .member-img {
-      opacity: .3;
-      transition: opacity .5s ease, transform .5s ease;
+      transition: transform .5s ease;
+
+      &:before {
+        transition: opacity .5s ease;
+      }
     }
     
     &:hover {
       cursor: pointer;
       
       > .member-img {
-        opacity: 1;
         transform: scale(1.1);
         transition: opacity .5s ease, transform 10s;
+        
+        &:before {
+          opacity: 0;
+        }
       }
 
       > .member-text {
