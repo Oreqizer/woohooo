@@ -1,9 +1,5 @@
 // Main:
-.nav {
-  display: none;
-}
-
-.home {
+#home {
   width: 100%;
   height: 100%;
 }
@@ -13,15 +9,19 @@
   position: fixed;
   height: 50%;
   width: 100%;
-  min-width: $page-min-width; // TODO
+  min-width: $page-min-width;
+  background: #000;
   border: solid 2px black;
   overflow: hidden;
+  
+  &.hidden {
+    visibility: hidden;
+  }
 }
 
 .woohooo-img,
 .woohooo-img-text {
   position: absolute;
-  transition: all .5s ease;
 }
 
 .woohooo-img {
@@ -32,7 +32,6 @@
     size: cover;
     position: center 50%;
   }
-  filter: blur(5px);
   
   &:before {
     content: "";
@@ -40,7 +39,7 @@
     height: 100%;
     width: 100%;
     background: #000;
-    opacity: .2;
+    opacity: .3;
   }
 }
 
@@ -49,7 +48,6 @@
   width: 95%;
   left: 10px;
   top: 25%;
-  opacity: 1;
 }
 
 .woohooo-name,
@@ -88,7 +86,7 @@
 
 .no-touch {
   .woohooo-description {
-    transition: all .5s;
+    transition: color .5s;
   }
   
   .woohooo-img-text {
@@ -104,11 +102,12 @@
 
 // Members:
 #members {
-  position: absolute;
+  position: relative;
   top: 50%;
   width: 100%;
   min-width: $page-min-width;
   height: 50%;
+  z-index: 2;
 }
 
 .member {

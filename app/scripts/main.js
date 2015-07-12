@@ -9,31 +9,41 @@ $(function() {
       width,
       win = $(window),
       doc = $(document),
+      html = $('html'),
       
+      home = $('#home'),
       woohooo = $('#woohooo');
   
   // Main events:
   win.on("resize", function() {
     windowDimensions();
+    screenDimensions();
   });
   
   // Parallax:
   win.on("scroll", function() {
-    if (doc.scrollTop() >= height/2) {
-      woohooo.hide();
+    if (win.scrollTop() > height/2) {
+      woohooo.addClass('hidden');
     } else {
-      woohooo.show();
+      woohooo.removeClass('hidden');
     }
   });
   
   // Initialisation:
   windowDimensions();
+  screenDimensions();
   
   // Helper functions:
   function windowDimensions() {
     height = win.height();
     width = win.width();
-    console.log (height + ', ' + width);
+  }
+  
+  function screenDimensions() {
+    if (html.hasClass('touch')) {
+      home.css({'height' : window.screen.height + 'px'});
+      woohooo.css({'height' : window.screen.height/2 + 'px'});
+    }
   }
   
 });
