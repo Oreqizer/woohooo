@@ -26,7 +26,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <nav class="nav" id="menu">
+    <nav class="nav">
       <ul>
         <li class="nav-item">WOOHOOO</li>
         <li class="nav-item">NINA</li>
@@ -36,32 +36,45 @@
       </ul>
     </nav>
     
-    <main id="panel">
-      <div class="home">
-        <div id="woohooo">
-          <div class="woohooo-img"></div>
-          <div class="woohooo-img-hover">
-            <a href="https://www.facebook.com/woohooofamily?fref=ts">COMING SOON.</a>
-          </div>
-        </div>
-        <div class="member" id="nina">
-          <span class="img"></span>
-          <span class="name">NINA</span>
-        </div>
-         <div class="member" id="veronika">
-          <span class="img"></span>
-          <span class="name">VERONIKA</span>
-        </div>
-        <div class="member" id="anita">
-          <span class="img"></span>
-          <span class="name">ANITA</span>
-        </div>
-        <div class="member" id="silvia">
-          <span class="img"></span>
-          <span class="name">SILVIA</span>
+    <div class="home">
+      <div id="woohooo">
+        <div class="woohooo-img"></div>
+        <div class="woohooo-img-text" id="woohooo-link">
+          <span class="woohooo-name">WOOHOOO</span>
+          <p class="woohooo-description">discover and admire</p>
         </div>
       </div>
-    </main>
+      <div id="members">
+        <div class="member" id="nina">
+          <span class="member-img"></span>
+          <div class="member-text">
+            <span class="member-name">NINA</span>
+            <p class="member-description">driver</p>
+          </div>
+        </div>
+         <div class="member" id="veronika">
+          <span class="member-img"></span>
+          <div class="member-text">
+            <span class="member-name">VERONIKA</span>
+            <p class="member-description">e-shop</p>
+          </div>
+        </div>
+        <div class="member" id="anita">
+          <span class="member-img"></span>
+          <div class="member-text">
+            <span class="member-name">ANITA</span>
+            <p class="member-description">motivation</p>
+          </div>
+        </div>
+        <div class="member" id="silvia">
+          <span class="member-img"></span>
+          <div class="member-text">
+            <span class="member-name">SILVIA</span>
+            <p class="member-description">YouTube</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -76,13 +89,11 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/emitter-es6/browser/index.js"></script>
-    <script src="/bower_components/slideout.js/dist/slideout.js"></script>
+    <script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
-        <script src="scripts/vendor/slideout.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

@@ -23,6 +23,11 @@ html, body {
   font-family: Exo, Tahoma, serif;
 }
 
+p, ul, ol, li {
+  padding: 0;
+  margin: 0;
+}
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;

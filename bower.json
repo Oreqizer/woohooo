@@ -6,6 +6,6 @@
     "modernizr": "~2.8.1",
     "normalize.css": "~3.0.3",
     "susy": "~2.2.5",
-    "slideout.js": "~0.1.9"
+    "gsap": "~1.17.0"
   }
 }
