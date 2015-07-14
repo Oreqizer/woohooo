@@ -33,7 +33,7 @@ $(function() {
       touch = true;
       home.css({'height' : window.screen.height + 'px'});
       woohooo.css({'height' : window.screen.height/2 + 'px'});
-      content.css({'height' : window.screen.height/2 + 'px'});
+      content.css({'height' : window.screen.height + 'px'});
     }
   }
   
