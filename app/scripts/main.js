@@ -12,31 +12,18 @@ $(function() {
       html = $('html'),
       
       home = $('#home'),
+      nav = $('#nav'),
       woohooo = $('#woohooo');
-  
-  // Main events:
-  win.on("resize", function() {
-    windowDimensions();
-    screenDimensions();
-  });
-  
-  // Parallax:
-  win.on("scroll", function() {
-    if (win.scrollTop() > height/2) {
-      woohooo.addClass('hidden');
-    } else {
-      woohooo.removeClass('hidden');
-    }
-  });
-  
-  // Initialisation:
-  windowDimensions();
-  screenDimensions();
   
   // Helper functions:
   function windowDimensions() {
-    height = win.height();
-    width = win.width();
+    if (html.hasClass('touch')) {
+      height = window.screen.height;
+      width = window.screen.width;
+    } else {
+      height = win.height();
+      width = win.width();
+    }
   }
   
   function screenDimensions() {
@@ -45,6 +32,44 @@ $(function() {
       woohooo.css({'height' : window.screen.height/2 + 'px'});
     }
   }
+  
+  // Initialisation:
+  windowDimensions();
+  screenDimensions();
+  
+  // Resize:
+  win.on("resize", function() {
+    windowDimensions();
+    screenDimensions();
+    
+    if (width < 720) {
+      nav.removeClass('open');
+    }
+  });
+  
+  // Scroll:
+  win.on("scroll", function() {
+    // Parallax:
+    if (win.scrollTop() > height/2) {
+      woohooo.addClass('hidden');
+    } else {
+      woohooo.removeClass('hidden');
+    }
+    
+    // Nav:
+    if (win.scrollTop() >= height) {
+      nav.fadeIn();
+    } else {
+      nav.fadeOut();
+      nav.removeClass('open');
+    }
+  });
+  
+  // Nav:
+  var navButton = $('.nav-button');
+  navButton.on("click", function() {
+    nav.toggleClass('open');
+  });
   
 });
 /* jshint ignore:end */

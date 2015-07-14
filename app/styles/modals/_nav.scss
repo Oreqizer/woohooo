@@ -1,3 +1,81 @@
 #nav {
-  display: none;
+  position: fixed;
+  height: 100%;
+  z-index: 100;
+  
+//  @include susy-media($m) {
+//    right: -270px;
+//  }
+}
+
+.nav-list {
+  position: relative;
+  width: 240px;
+  height: 100%;
+  left: -240px;
+  transition: left .5s ease;
+  background: transparentize(#F00, .5);
+  
+  @include susy-media($m) {
+    //background: none;
+  }
+}
+
+// Button:
+$nb-width: 30px;
+$nb-height: 3px;
+$nb-offset: 10px;
+
+.nav-button {
+  position: fixed;
+  z-index: 101;
+  
+  @include susy-media($m) {
+    display: none;
+  }
+}
+
+.nav-burger {
+  position: absolute;
+  display: block;
+  height: $nb-height;
+  width: $nb-width;
+  left: $nb-offset;
+  border-radius: 1px;
+  background: #FFF;
+  transition: all .25s ease;
+}
+
+.nb-1 {
+  top: $nb-offset;
+}
+
+.nb-2 {
+  top: $nb-offset + $nb-width/4;
+}
+
+.nb-3 {
+  top: $nb-offset + ($nb-width+1)/2;
+}
+
+// Open:
+
+.open {
+  .nav-list {
+    left: 0;
+  }
+
+  .nb-1 {
+    top: $nb-offset + $nb-width/4;
+    transform: rotate(45deg);
+  }
+
+  .nb-2 {
+    opacity: 0;
+  }
+
+  .nb-3 {
+    top: $nb-offset + $nb-width/4;
+    transform: rotate(-45deg);
+  }
 }
