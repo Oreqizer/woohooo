@@ -18,15 +18,20 @@ $(function() {
   
   // Helper functions:
   function windowDimensions() {
-    height = win.height();
-    width = win.width();
+    if (html.hasClass('touch')) {
+      height = window.screen.height;
+      width = window.screen.width;
+    } else {
+      height = win.height();
+      width = win.width();
+    }
   }
   
   function screenDimensions() {
     if (html.hasClass('touch')) {
       touch = true;
       home.css({'height' : height + 'px'});
-      woohooo.css({'height' : height + 'px'});
+      woohooo.css({'height' : height/2 + 'px'});
     }
   }
   
