@@ -3,10 +3,6 @@
   height: 100%;
   z-index: 100;
   display: none;
-  
-//  @include susy-media($m) {
-//    right: -270px;
-//  }
 }
 
 .nav-list {
@@ -14,12 +10,8 @@
   width: 240px;
   height: 100%;
   left: -240px;
-  transition: left .5s;
+  transition: transform .5s;
   background: transparentize(#F00, .5);
-  
-  @include susy-media($m) {
-    //background: none;
-  }
 }
 
 // Button:
@@ -29,11 +21,9 @@ $nb-offset: 10px;
 
 .nav-button {
   position: fixed;
+  width: $nb-width + $nb-offset*2;
+  height: $nb-height + $nb-offset*2 + ($nb-width+1)/2;
   z-index: 101;
-  
-  @include susy-media($m) {
-    display: none;
-  }
 }
 
 .nav-burger {
@@ -44,8 +34,7 @@ $nb-offset: 10px;
   left: $nb-offset;
   border-radius: 1px;
   background: #FFF;
-  transition: .25s;
-  transition-property: transform, top;
+  transition: transform .25s;
 }
 
 .nb-1 {
@@ -60,16 +49,21 @@ $nb-offset: 10px;
   top: $nb-offset + ($nb-width+1)/2;
 }
 
-// Open:
+// Button modernizr:
+.no-touch {
+  .nav-button:hover {
+    cursor: pointer;
+  }
+}
 
+// Open:
 .open {
   .nav-list {
-    left: 0;
+    transform: translateX(240px);
   }
 
   .nb-1 {
-    top: $nb-offset + $nb-width/4;
-    transform: rotate(45deg);
+    transform: translateY($nb-width/4) rotate(45deg);
   }
 
   .nb-2 {
@@ -77,7 +71,19 @@ $nb-offset: 10px;
   }
 
   .nb-3 {
-    top: $nb-offset + $nb-width/4;
-    transform: rotate(-45deg);
+    transform: translateY(-1*($nb-width+3)/4) rotate(-45deg);
+  }
+}
+
+// Desktop:
+.no-touch {
+  @include susy-media($s) {
+    #nav {
+      
+    }
+    
+    .nav-button {
+      display: none;
+    }
   }
 }

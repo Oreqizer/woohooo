@@ -221,7 +221,6 @@
 }
 
 // Members modernizr:
-
 .touch {
   .member-description {
     color: #F00;
@@ -236,10 +235,6 @@
       &:before {
         transition: opacity .5s ease;
       }
-    }
-    
-    > .member-text {
-      transition: opacity .5s ease;
     }
     
     &:hover {

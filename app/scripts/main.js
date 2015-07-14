@@ -7,6 +7,7 @@ $(function() {
   // Variables:
   var height,
       width,
+      touch,
       win = $(window),
       doc = $(document),
       html = $('html'),
@@ -28,6 +29,7 @@ $(function() {
   
   function screenDimensions() {
     if (html.hasClass('touch')) {
+      touch = true;
       home.css({'height' : window.screen.height + 'px'});
       woohooo.css({'height' : window.screen.height/2 + 'px'});
     }
@@ -42,7 +44,7 @@ $(function() {
     windowDimensions();
     screenDimensions();
     
-    if (width < 720) {
+    if (width < 480 && !touch) { // $s
       nav.removeClass('open');
     }
   });
