@@ -14,7 +14,8 @@ $(function() {
       
       home = $('#home'),
       nav = $('#nav'),
-      woohooo = $('#woohooo');
+      woohooo = $('#woohooo'),
+      content = $('#content');
   
   // Helper functions:
   function windowDimensions() {
@@ -32,6 +33,7 @@ $(function() {
       touch = true;
       home.css({'height' : window.screen.height + 'px'});
       woohooo.css({'height' : window.screen.height/2 + 'px'});
+      content.css({'height' : window.screen.height/2 + 'px'});
     }
   }
   
@@ -40,14 +42,14 @@ $(function() {
   screenDimensions();
   
   // Resize:
-//  win.on("resize", function() {
-//    windowDimensions();
-//    screenDimensions();
-//    
-//    if (width < 480 && !touch) { // $s
-//      nav.removeClass('open');
-//    }
-//  });
+  win.on("resize", function() {
+    windowDimensions();
+    screenDimensions();
+    
+    if (width < 480 && !touch) { // $s
+      nav.removeClass('open');
+    }
+  });
   
   // Scroll:
   win.on("scroll", function() {
