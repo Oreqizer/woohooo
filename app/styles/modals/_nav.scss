@@ -1,3 +1,4 @@
+// Nav:
 #nav {
   position: fixed;
   height: 100%;
@@ -7,18 +8,14 @@
 
 .nav-list {
   position: relative;
-  width: 240px;
+  width: $nav-width;
   height: 100%;
-  left: -240px;
+  left: -$nav-width;
   transition: transform .5s;
   background: transparentize(#F00, .5);
 }
 
 // Button:
-$nb-width: 30px;
-$nb-height: 3px;
-$nb-offset: 10px;
-
 .nav-button {
   position: fixed;
   width: $nb-width + $nb-offset*2;
@@ -59,7 +56,7 @@ $nb-offset: 10px;
 // Open:
 .open {
   .nav-list {
-    transform: translateX(240px);
+    transform: translateX($nav-width);
   }
 
   .nb-1 {

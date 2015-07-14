@@ -40,14 +40,14 @@ $(function() {
   screenDimensions();
   
   // Resize:
-  win.on("resize", function() {
-    windowDimensions();
-    screenDimensions();
-    
-    if (width < 480 && !touch) { // $s
-      nav.removeClass('open');
-    }
-  });
+//  win.on("resize", function() {
+//    windowDimensions();
+//    screenDimensions();
+//    
+//    if (width < 480 && !touch) { // $s
+//      nav.removeClass('open');
+//    }
+//  });
   
   // Scroll:
   win.on("scroll", function() {
