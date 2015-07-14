@@ -2,6 +2,7 @@
   position: fixed;
   height: 100%;
   z-index: 100;
+  display: none;
   
 //  @include susy-media($m) {
 //    right: -270px;
@@ -43,7 +44,8 @@ $nb-offset: 10px;
   left: $nb-offset;
   border-radius: 1px;
   background: #FFF;
-  transition: all .25s ease;
+  transition: .25s ease;
+  transition-property: transform, top;
 }
 
 .nb-1 {

@@ -145,7 +145,6 @@
   left: 5%;
   color: #FFF;
   text-shadow: 2px 2px 5px transparentize(#000, .5);
-  transition: all .5s ease;
 }
 
 .member-name {
@@ -237,6 +236,10 @@
       &:before {
         transition: opacity .5s ease;
       }
+    }
+    
+    > .member-text {
+      transition: opacity .5s ease;
     }
     
     &:hover {
