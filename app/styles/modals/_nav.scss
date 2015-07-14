@@ -14,7 +14,7 @@
   width: 240px;
   height: 100%;
   left: -240px;
-  transition: left .5s ease;
+  transition: left .5s;
   background: transparentize(#F00, .5);
   
   @include susy-media($m) {
@@ -44,7 +44,7 @@ $nb-offset: 10px;
   left: $nb-offset;
   border-radius: 1px;
   background: #FFF;
-  transition: .25s ease;
+  transition: .25s;
   transition-property: transform, top;
 }
 
