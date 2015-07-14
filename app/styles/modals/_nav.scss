@@ -10,9 +10,74 @@
   position: relative;
   width: $nav-width;
   height: 100%;
+  min-height: 320px;
+  padding: 40px 0 40px;
   left: -$nav-width;
   transition: transform .5s;
   background: transparentize(#F00, .5);
+}
+
+// List:
+.nav-item {
+  position: relative;
+  display: block;
+  height: 20%;
+  background: transparentize(white, .5) content-box;
+  padding: 2px;
+}
+
+.nav-text {
+  display: block;
+  color: #FFF;
+  text-shadow: 2px 2px 5px transparentize(#000, .5);
+  font-size: 2em;
+  padding-left: 8px;
+}
+
+.nav-subtext {
+  color: #F00;
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+.nav-woohooo {
+  background: {
+    image: url("../images/woohooo-nav.jpg");
+    size: cover;
+    position: center 10%;
+  }
+}
+
+.nav-nina {
+  background: {
+    image: url("../images/nina-nav.jpg");
+    size: cover;
+    position: center 10%;
+  }
+}
+
+.nav-veronika {
+  background: {
+    image: url("../images/veronika-nav.jpg");
+    size: cover;
+    position: center 10%;
+  } 
+}
+
+.nav-anita {
+  background: {
+    image: url("../images/anita-nav.jpg");
+    size: cover;
+    position: center 20%;
+  } 
+}
+
+.nav-silvia {
+  background: {
+    image: url("../images/silvia-nav.jpg");
+    size: cover;
+    position: center top;
+  } 
 }
 
 // Button:
@@ -76,7 +141,40 @@
 .no-touch {
   @include susy-media($s) {
     #nav {
+      right: 0;
+    }
+    
+    .nav-list {
+      left: $nav-width;
+      padding: 0;
+      background: none;
+    }
+    
+    .nav-item {
+      transition: transform .5s;
+      padding: 4px 0 4px 0;
       
+      &:hover {
+        transform: translateX(-$nav-width);
+      }
+      
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 30px;
+        height: 100%;
+        left: -26px;
+        margin: -4px;
+        padding: 4px 0 4px;
+        background: transparentize(#F00, .5) content-box;
+      }
+      
+      &.active {
+        &:before {
+          background: #F00 content-box;
+        }
+      }
     }
     
     .nav-button {

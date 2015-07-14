@@ -6,12 +6,12 @@
 
 // Woohooo:
 #woohooo {
-  position: fixed;
+  position: absolute;
   height: 50%;
   width: 100%;
   min-width: $page-min-width;
   background: #000;
-  border: solid 2px black;
+  border: solid 2px #000;
   overflow: hidden;
   
   &.hidden {
@@ -31,6 +31,7 @@
     image: url("../images/car-cover-wide.jpg");
     size: cover;
     position: center 50%;
+    attachment: fixed;
   }
   
   &:before {
@@ -77,12 +78,7 @@
 }
 
 // Woohooo modernizr:
-
 .touch {
-  #woohooo {
-    position: absolute;  
-  }
-  
   .woohooo-description {
     color: #F00;
   }
@@ -118,7 +114,7 @@
   height: 50%;
   width: 50%;
   float: left;
-  border: solid 2px black;
+  border: solid 2px #000;
   overflow: hidden;
   
   @include susy-media(min-aspect-ratio $ar-layout) {
@@ -233,11 +229,15 @@
 
 .no-touch {
   .member {
+    > .member-text {
+      transition: opacity .5s;
+    }
+    
     > .member-img {
-      transition: transform .5s ease;
+      transition: transform .5s;
 
       &:before {
-        transition: opacity .5s ease;
+        transition: opacity .5s;
       }
     }
     
@@ -246,7 +246,7 @@
       
       > .member-img {
         transform: scale(1.1);
-        transition: opacity .5s ease, transform 10s;
+        transition: opacity .5s, transform 10s linear;
         
         &:before {
           opacity: 0;

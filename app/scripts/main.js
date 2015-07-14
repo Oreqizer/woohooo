@@ -14,26 +14,28 @@ $(function() {
       
       home = $('#home'),
       nav = $('#nav'),
-      woohooo = $('#woohooo'),
-      content = $('#content');
+      woohooo = $('#woohooo');
   
   // Helper functions:
   function windowDimensions() {
-    if (html.hasClass('touch')) {
-      height = window.screen.height;
-      width = window.screen.width;
-    } else {
-      height = win.height();
-      width = win.width();
-    }
+    height = win.height();
+    width = win.width();
   }
   
   function screenDimensions() {
     if (html.hasClass('touch')) {
       touch = true;
-      home.css({'height' : window.screen.height + 'px'});
-      woohooo.css({'height' : window.screen.height/2 + 'px'});
-      content.css({'height' : window.screen.height + 'px'});
+      home.css({'height' : height + 'px'});
+      woohooo.css({'height' : height + 'px'});
+    }
+  }
+  
+  function checkNav() {
+    if (win.scrollTop() >= height) {
+      nav.fadeIn();
+    } else {
+      nav.fadeOut();
+      nav.removeClass('open');
     }
   }
   
@@ -45,6 +47,7 @@ $(function() {
   win.on("resize", function() {
     windowDimensions();
     screenDimensions();
+    checkNav();
     
     if (width < 480 && !touch) { // $s
       nav.removeClass('open');
@@ -60,13 +63,11 @@ $(function() {
       woohooo.removeClass('hidden');
     }
     
+    // Anchor:
+    // TODO: '.active' on current nav-item
+    
     // Nav:
-    if (win.scrollTop() >= height) {
-      nav.fadeIn();
-    } else {
-      nav.fadeOut();
-      nav.removeClass('open');
-    }
+    checkNav();
   });
   
   // Nav:
