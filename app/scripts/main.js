@@ -25,7 +25,13 @@ $(function() {
       home = $('#home'),
       nav = $('#nav'),
       content = $('#content'),
-      woohooo = $('.home-woohooo'),
+      woohooo = $('#woohooo'),
+      nina = $('#nina'),
+      veronika = $('#veronika'),
+      anita = $('#anita'),
+      silvia = $('#silvia'),
+      
+      header = $('.home-woohooo'),
       sections = getElems($('.main-section'));
   
   // FUNCTIONS: -------------------------
@@ -43,7 +49,7 @@ $(function() {
     if (html.hasClass('touch')) {
       touch = true;
       home.css({'height' : height + 'px'});
-      woohooo.css({'height' : height/2 + 'px'});
+      header.css({'height' : height/2 + 'px'});
       content.css({'min-height' : height + 'px'});
     }
   }
@@ -54,8 +60,7 @@ $(function() {
   
   // NAV: ----------------------------------
   var navButton = $('.nav-button'),
-      navItems = getElems($('.nav-item')),
-      navLinks = getElems($('.nav-item'));
+      navItems = $('.nav-item');
   
   navButton.on("click", function() {
     nav.toggleClass('open');
@@ -85,14 +90,14 @@ $(function() {
   }
   
   function clearNav() {
-    for (var i = 0; i < navItems.length; i++) {
-      navItems[i].removeClass('active');
-    }
+    navItems.each(function() {
+      $(this).removeClass('active');
+    });
   }
   
-  function tickNav(i) {
+  function tickNav(elem) {
     clearNav();
-    navItems[i].addClass('active');
+    $(elem).addClass('active');
   }
   
   // RESIZE: -------------------------------
@@ -108,26 +113,22 @@ $(function() {
   
   // SCROLL: -------------------------------
   win.on("scroll", function() {
-    var scrollTop = win.scrollTop(),
-        halfHeight = height/2;
+    var scrollTop = win.scrollTop();
     
     // Parallax:
-    if (scrollTop > halfHeight) {
-      woohooo.addClass('hidden');
+    if (scrollTop > height/2) {
+      header.addClass('hidden');
     } else {
-      woohooo.removeClass('hidden');
+      header.removeClass('hidden');
     }
     
     // Anchor:
-    var tick = -1;
-    if (sections[1].offset().top - halfHeight >= scrollTop) tick = 0;
-    else if (sections[2].offset().top - halfHeight >= scrollTop) tick = 1;
-    else if (sections[3].offset().top - halfHeight >= scrollTop) tick = 2;
-    else if (sections[4].offset().top - halfHeight >= scrollTop) tick = 3;
-    else tick = 4;
-    
-    if (tick == -1) clearNav();
-    else tickNav(tick);
+    if (scrollTop + height/4 >= silvia.offset().top) tickNav('.nav-silvia');
+    else if (scrollTop + height/4 >= anita.offset().top) tickNav('.nav-anita');
+    else if (scrollTop + height/4 >= veronika.offset().top) tickNav('.nav-veronika');
+    else if (scrollTop + height/4 >= nina.offset().top) tickNav('.nav-nina');
+    else if (scrollTop + height/4 >= woohooo.offset().top) tickNav('.nav-woohooo');
+    else clearNav();
     
     // Nav:
     checkNav();
