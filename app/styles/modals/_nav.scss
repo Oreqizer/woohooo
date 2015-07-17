@@ -3,10 +3,9 @@
   position: fixed;
   height: 100%;
   z-index: 100;
-  display: none;
 }
 
-.nav-list { // TODO small heights
+.nav-list {
   position: relative;
   width: $nav-width;
   height: 100%;
@@ -17,7 +16,7 @@
   background: transparentize(#000, .5);
 }
 
-// List:
+// List: -----------------------------
 $nav-padding: 2px;
 
 .nav-item {
@@ -113,7 +112,7 @@ $nav-padding: 2px;
   } 
 }
 
-// Button:
+// Button: --------------------------
 .nav-button {
   position: fixed;
   width: $nb-width + $nb-offset*2;
@@ -145,13 +144,21 @@ $nav-padding: 2px;
 }
 
 // Button modernizr:
+.touch {
+  .open {
+    &#nav {
+      overflow: auto;  
+    }
+  }
+}
+
 .no-touch {
   .nav-button:hover {
     cursor: pointer;
   }
 }
 
-// Open:
+// Open: --------------------------
 .open {
   .nav-list {
     transform: translateX($nav-width);
@@ -170,7 +177,7 @@ $nav-padding: 2px;
   }
 }
 
-// Desktop:
+// Desktop: -----------------------
 .no-touch {
   @include susy-media($l) {
     #nav {
