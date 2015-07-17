@@ -24,6 +24,7 @@ $(function() {
       
       home = $('#home'),
       nav = $('#nav'),
+      content = $('#content'),
       woohooo = $('.home-woohooo'),
       sections = getElems($('.main-section'));
   
@@ -43,6 +44,7 @@ $(function() {
       touch = true;
       home.css({'height' : height + 'px'});
       woohooo.css({'height' : height/2 + 'px'});
+      content.css({'min-height' : height + 'px'});
     }
   }
   
@@ -106,22 +108,22 @@ $(function() {
   
   // SCROLL: -------------------------------
   win.on("scroll", function() {
-    var scrollTop = win.scrollTop();
+    var scrollTop = win.scrollTop(),
+        halfHeight = height/2;
     
     // Parallax:
-    if (scrollTop > height/2) {
+    if (scrollTop > halfHeight) {
       woohooo.addClass('hidden');
     } else {
       woohooo.removeClass('hidden');
     }
     
     // Anchor:
-    var tick = -1,
-        offset = height / 4;
-    if (sections[1].offset().top - offset >= scrollTop) tick = 0;
-    else if (sections[2].offset().top - offset >= scrollTop) tick = 1;
-    else if (sections[3].offset().top - offset >= scrollTop) tick = 2;
-    else if (sections[4].offset().top - offset >= scrollTop) tick = 3;
+    var tick = -1;
+    if (sections[1].offset().top - halfHeight >= scrollTop) tick = 0;
+    else if (sections[2].offset().top - halfHeight >= scrollTop) tick = 1;
+    else if (sections[3].offset().top - halfHeight >= scrollTop) tick = 2;
+    else if (sections[4].offset().top - halfHeight >= scrollTop) tick = 3;
     else tick = 4;
     
     if (tick == -1) clearNav();

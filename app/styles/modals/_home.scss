@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-// Woohooo:
+// Woohooo: ------------------------
 .home-woohooo {
   position: absolute;
   height: 50%;
@@ -45,42 +45,61 @@
 }
 
 .home-woohooo-img-text {
-  height: 50%;
-  width: 95%;
   left: 10px;
-  top: 25%;
+  bottom: 20%;
 }
 
 .home-woohooo-name,
 .home-woohooo-description {
   position: relative;
-  display: block;
-  height: 50%;
   color: #FFF;
+  line-height: 100%;
   text-shadow: 2px 2px 5px transparentize(#000, .5);
 }
 
 .home-woohooo-name {
-  font-size: 16vw;
-  
-  @include susy-media(min-aspect-ratio $ar-font) {
-    font-size: 12vh;
-  }
+  font-size: 14vw;
 }
 
 .home-woohooo-description {
-  font-size: 10vw;
   font-weight: 100;
-  
-  @include susy-media(min-aspect-ratio $ar-font) {
-    font-size: 7vh;
-  }
+  font-size: 9vw;
 }
 
 // Woohooo modernizr:
 .touch {
-  .home-woohooo-description {
-    color: #F00;
+  @include susy-media(min-aspect-ratio $ar-layout) {
+    .home-woohooo-name {
+      font-size: 3em;
+
+      @include susy-media($m) {
+        font-size: 4em;
+      }
+
+      @include susy-media($l) {
+        font-size: 5.5em;
+      }
+
+      @include susy-media($xl) {
+        font-size: 7em;
+      }
+    }
+
+    .home-woohooo-description {
+      font-size: 2.5em;
+
+      @include susy-media($m) {
+        font-size: 3em;
+      }
+
+      @include susy-media($l) {
+        font-size: 4em;
+      }
+
+      @include susy-media($xl) {
+        font-size: 5em;
+      }
+    }
   }
 }
 
@@ -96,9 +115,20 @@
       }
     }
   }
+  
+  @include susy-media(min-aspect-ratio $ar-layout) {
+    .home-woohooo-name {
+      font-size: 14vh;
+    }
+
+    .home-woohooo-description {
+      color: #F00;
+      font-size: 9vh;
+    }
+  }
 }
 
-// Members:
+// Members: ----------------------
 #members {
   position: relative;
   top: 50%;
