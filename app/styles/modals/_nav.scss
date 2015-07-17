@@ -6,24 +6,56 @@
   display: none;
 }
 
-.nav-list {
+.nav-list { // TODO small heights
   position: relative;
   width: $nav-width;
   height: 100%;
-  min-height: 320px;
+  min-height: 480px;
   padding: 40px 0 40px;
   left: -$nav-width;
   transition: transform .5s;
-  background: transparentize(#F00, .5);
+  background: transparentize(#000, .5);
 }
 
 // List:
+$nav-padding: 2px;
+
 .nav-item {
   position: relative;
   display: block;
   height: 20%;
-  background: transparentize(white, .5) content-box;
-  padding: 2px;
+  background: transparentize(#FFF, .5) content-box;
+  padding: $nav-padding;
+  
+  &:before {
+    position: absolute;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: $nav-padding;
+    background: transparentize(#FFF, .6) content-box;
+    transition: opacity .5s;
+    opacity: 0;
+  }
+  
+  &.active {
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
+.nav-anchor {
+  > a {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+  }
 }
 
 .nav-text {
@@ -40,9 +72,10 @@
   font-weight: 100;
 }
 
+// List items:
 .nav-woohooo {
   background: {
-    image: url("../images/woohooo-nav.jpg");
+    image: url("../images/car-cover-wide.jpg");
     size: cover;
     position: center 10%;
   }
@@ -50,7 +83,7 @@
 
 .nav-nina {
   background: {
-    image: url("../images/nina-nav.jpg");
+    image: url("../images/nina.jpg");
     size: cover;
     position: center 10%;
   }
@@ -58,7 +91,7 @@
 
 .nav-veronika {
   background: {
-    image: url("../images/veronika-nav.jpg");
+    image: url("../images/veronika.jpg");
     size: cover;
     position: center 10%;
   } 
@@ -66,7 +99,7 @@
 
 .nav-anita {
   background: {
-    image: url("../images/anita-nav.jpg");
+    image: url("../images/anita.jpg");
     size: cover;
     position: center 20%;
   } 
@@ -74,7 +107,7 @@
 
 .nav-silvia {
   background: {
-    image: url("../images/silvia-nav.jpg");
+    image: url("../images/silvia.jpg");
     size: cover;
     position: center top;
   } 
@@ -139,41 +172,46 @@
 
 // Desktop:
 .no-touch {
-  @include susy-media($s) {
+  @include susy-media($l) {
     #nav {
       right: 0;
     }
     
     .nav-list {
+      min-height: 480px;
       left: $nav-width;
       padding: 0;
       background: none;
+      //overflow: auto;
     }
+      
+    $nav-border-m: 100px;
+    $nav-margin-m: 10px;
     
     .nav-item {
       transition: transform .5s;
-      padding: 4px 0 4px 0;
+      padding: $nav-margin-m 0 $nav-margin-m 0;
       
       &:hover {
         transform: translateX(-$nav-width);
       }
       
       &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 30px;
+        width: $nav-border-m;
         height: 100%;
-        left: -26px;
-        margin: -4px;
-        padding: 4px 0 4px;
-        background: transparentize(#F00, .5) content-box;
+        top: $nav-margin-m;
+        left: -$nav-border-m + $nav-margin-m;
+        margin: -$nav-margin-m;
+        padding: $nav-margin-m 0 $nav-margin-m;
       }
       
-      &.active {
-        &:before {
-          background: #F00 content-box;
-        }
+      .nav-text {
+        position: relative;
+        display: block;
+        text-align: right;
+        padding: 0 10px 0;
+        left: -100%;
+        font-size: 1em;
       }
     }
     

@@ -5,7 +5,7 @@
 }
 
 // Woohooo:
-#woohooo {
+.home-woohooo {
   position: absolute;
   height: 50%;
   width: 100%;
@@ -19,12 +19,12 @@
   }
 }
 
-.woohooo-img,
-.woohooo-img-text {
+.home-woohooo-img,
+.home-woohooo-img-text {
   position: absolute;
 }
 
-.woohooo-img {
+.home-woohooo-img {
   height: 100%;
   width: 100%;
   background: {
@@ -44,15 +44,15 @@
   }
 }
 
-.woohooo-img-text {
+.home-woohooo-img-text {
   height: 50%;
   width: 95%;
   left: 10px;
   top: 25%;
 }
 
-.woohooo-name,
-.woohooo-description {
+.home-woohooo-name,
+.home-woohooo-description {
   position: relative;
   display: block;
   height: 50%;
@@ -60,7 +60,7 @@
   text-shadow: 2px 2px 5px transparentize(#000, .5);
 }
 
-.woohooo-name {
+.home-woohooo-name {
   font-size: 16vw;
   
   @include susy-media(min-aspect-ratio $ar-font) {
@@ -68,7 +68,7 @@
   }
 }
 
-.woohooo-description {
+.home-woohooo-description {
   font-size: 10vw;
   font-weight: 100;
   
@@ -79,21 +79,19 @@
 
 // Woohooo modernizr:
 .touch {
-  .woohooo-description {
+  .home-woohooo-description {
     color: #F00;
   }
 }
 
 .no-touch {
-  .woohooo-description {
-    transition: color .5s;
-  }
-  
-  .woohooo-img-text {
+  .home-woohooo {
+    .home-woohooo-description {
+      transition: color .5s;
+    }
+    
     &:hover {
-      cursor: pointer;
-      
-      .woohooo-description {
+      .home-woohooo-description {
         color: #F00;
       }
     }
@@ -111,6 +109,7 @@
 }
 
 .member {
+  position: relative;
   height: 50%;
   width: 50%;
   float: left;
@@ -180,7 +179,7 @@
   }
 }
 
-#nina {
+.member-nina {
   > .member-img {
     background: {
       image: url("../images/nina.jpg");
@@ -190,7 +189,7 @@
   }
 }
 
-#veronika {
+.member-veronika {
   > .member-img {
     background: {
       image: url("../images/veronika.jpg");
@@ -200,7 +199,7 @@
   }
 }
 
-#anita {
+.member-anita {
   > .member-img {
     background: {
       image: url("../images/anita.jpg");
@@ -210,7 +209,7 @@
   }
 }
 
-#silvia {
+.member-silvia {
   > .member-img {
     background: {
       image: url("../images/silvia.jpg");
@@ -246,7 +245,7 @@
       
       > .member-img {
         transform: scale(1.1);
-        transition: opacity .5s, transform 10s linear;
+        transition: opacity .5s, transform 5s linear;
         
         &:before {
           opacity: 0;

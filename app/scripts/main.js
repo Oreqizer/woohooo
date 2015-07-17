@@ -3,20 +3,31 @@
 
 /* jshint ignore:start */
 $(function() {
+  // GLOBAL FUNCTIONS: --------------------------
   
-  // Variables:
+  function getElems(array) {
+    var elems = [];
+    for (var i = 0; i < array.length; i++) {
+      elems.push($(array[i]));
+    }
+    return elems;
+  }
+  
+  // VARIABLES: -------------------------------
   var height,
       width,
       touch,
       win = $(window),
       doc = $(document),
       html = $('html'),
+      root = $('html, body'),
       
       home = $('#home'),
       nav = $('#nav'),
-      woohooo = $('#woohooo');
+      woohooo = $('.home-woohooo'),
+      sections = getElems($('.main-section'));
   
-  // Helper functions:
+  // FUNCTIONS: -------------------------
   function windowDimensions() {
     if (html.hasClass('touch')) {
       height = window.screen.height;
@@ -35,6 +46,33 @@ $(function() {
     }
   }
   
+  // INIT: -----------------------
+  windowDimensions();
+  screenDimensions();
+  
+  // NAV: ----------------------------------
+  var navButton = $('.nav-button'),
+      navItems = getElems($('.nav-item')),
+      navLinks = getElems($('.nav-item'));
+  
+  navButton.on("click", function() {
+    nav.toggleClass('open');
+  });
+  
+  $('.nav-anchor > a').each(function() {
+    $(this).on('click', function() {
+      var href = $.attr(this, 'href');
+      TweenMax.to(root, .75, {
+          scrollTop: $(href).offset().top,
+          onComplete: function() {
+            window.location.hash = href;
+          }
+      });
+      return false;
+    });
+  });
+  
+  // Helpers:
   function checkNav() {
     if (win.scrollTop() >= height) {
       nav.fadeIn();
@@ -44,41 +82,53 @@ $(function() {
     }
   }
   
-  // Initialisation:
-  windowDimensions();
-  screenDimensions();
+  function clearNav() {
+    for (var i = 0; i < navItems.length; i++) {
+      navItems[i].removeClass('active');
+    }
+  }
   
-  // Resize:
+  function tickNav(i) {
+    clearNav();
+    navItems[i].addClass('active');
+  }
+  
+  // RESIZE: -------------------------------
   win.on("resize", function() {
     windowDimensions();
     screenDimensions();
     checkNav();
     
-    if (width < 480 && !touch) { // $s
+    if (width < 480 && !touch) {
       nav.removeClass('open');
     }
   });
   
-  // Scroll:
+  // SCROLL: -------------------------------
   win.on("scroll", function() {
+    var scrollTop = win.scrollTop();
+    
     // Parallax:
-    if (win.scrollTop() > height/2) {
+    if (scrollTop > height/2) {
       woohooo.addClass('hidden');
     } else {
       woohooo.removeClass('hidden');
     }
     
     // Anchor:
-    // TODO: '.active' on current nav-item
+    var tick = -1,
+        offset = height / 4;
+    if (sections[1].offset().top - offset >= scrollTop) tick = 0;
+    else if (sections[2].offset().top - offset >= scrollTop) tick = 1;
+    else if (sections[3].offset().top - offset >= scrollTop) tick = 2;
+    else if (sections[4].offset().top - offset >= scrollTop) tick = 3;
+    else tick = 4;
+    
+    if (tick == -1) clearNav();
+    else tickNav(tick);
     
     // Nav:
     checkNav();
-  });
-  
-  // Nav:
-  var navButton = $('.nav-button');
-  navButton.on("click", function() {
-    nav.toggleClass('open');
   });
   
 });
