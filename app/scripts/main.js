@@ -35,14 +35,13 @@ $(function() {
     }
   }
   
-  var navList = $('.nav-list');
   function screenDimensions() {
     if (html.hasClass('touch')) {
       touch = true;
+      nav.css({'height' : height + 'px'});
       home.css({'height' : height + 'px'});
       header.css({'height' : height/2 + 'px'});
       content.css({'min-height' : height + 'px'});
-      navList.css({'height' : height + 'px'});
     }
   }
   
@@ -59,14 +58,6 @@ $(function() {
   });
   
   nav.swipe({
-    swipe: function(a, b, c, d, e, f) {
-      console.log(a);
-      console.log(b);
-      console.log(c);
-      console.log(d);
-      console.log(e);
-      console.log(f);
-    },
     swipeLeft: function() {
       nav.removeClass('open');
     },
