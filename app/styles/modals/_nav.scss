@@ -37,7 +37,7 @@ $nav-padding: 2px;
     top: 0;
     left: 0;
     padding: $nav-padding 0 $nav-padding;
-    background: transparentize(#F00, .6) content-box;
+    background: transparentize(#FFF, .6) content-box;
     transition: opacity .5s;
     opacity: 0;
   }
