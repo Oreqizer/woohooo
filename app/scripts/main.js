@@ -1,19 +1,8 @@
-/* jshint devel:true */
+/* jshint devel:false */
 'use strict';
 
-/* jshint ignore:start */
 $(function() {
-  // GLOBAL FUNCTIONS: --------------------------
-  
-  function getElems(array) {
-    var elems = [];
-    for (var i = 0; i < array.length; i++) {
-      elems.push($(array[i]));
-    }
-    return elems;
-  }
-  
-  // VARIABLES: -------------------------------
+  // VARIABLES: -----------------------------------------------------------------------
   var height,
       width,
       touch,
@@ -25,6 +14,7 @@ $(function() {
       home = $('#home'),
       nav = $('#nav'),
       content = $('#content'),
+      
       woohooo = $('#woohooo'),
       nina = $('#nina'),
       veronika = $('#veronika'),
@@ -32,9 +22,9 @@ $(function() {
       silvia = $('#silvia'),
       
       header = $('.home-woohooo'),
-      sections = getElems($('.main-section'));
+      sections = $('.main-section');
   
-  // FUNCTIONS: -------------------------
+  // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
     if (html.hasClass('touch')) {
       height = window.screen.height;
@@ -54,22 +44,30 @@ $(function() {
     }
   }
   
-  // INIT: -----------------------
+  // INIT: ----------------------------------------------------------------------------
   windowDimensions();
   screenDimensions();
   
-  // NAV: ----------------------------------
+  // NAV: -----------------------------------------------------------------------------
   var navButton = $('.nav-button'),
       navItems = $('.nav-item');
   
-  navButton.on("click", function() {
+  navButton.on('click', function() {
     nav.toggleClass('open');
+  });
+  
+  nav.on('swipeleft', function() {
+    nav.removeClass('open');
+  });
+  
+  nav.on('swiperight', function() {
+    nav.addClass('open');
   });
   
   $('.nav-anchor > a').each(function() {
     $(this).on('click', function() {
       var href = $.attr(this, 'href');
-      TweenMax.to(root, .75, {
+      TweenMax.to(root, 0.75, {
           scrollTop: $(href).offset().top,
           onComplete: function() {
             window.location.hash = href;
@@ -79,7 +77,7 @@ $(function() {
     });
   });
   
-  // Helpers:
+  // Helper functions:
   function checkNav() {
     if (win.scrollTop() >= height) {
       nav.fadeIn();
@@ -95,13 +93,15 @@ $(function() {
     });
   }
   
-  function tickNav(elem) {
+  function tickNav(id) {
     clearNav();
-    $(elem).addClass('active');
+    if (id) {
+      $('.nav-' + id).addClass('active');
+    }
   }
   
-  // RESIZE: -------------------------------
-  win.on("resize", function() {
+  // RESIZE: --------------------------------------------------------------------------
+  win.on('resize', function() {
     windowDimensions();
     screenDimensions();
     checkNav();
@@ -111,8 +111,8 @@ $(function() {
     }
   });
   
-  // SCROLL: -------------------------------
-  win.on("scroll", function() {
+  // SCROLL: --------------------------------------------------------------------------
+  win.on('scroll', function() {
     var scrollTop = win.scrollTop();
     
     // Parallax:
@@ -123,16 +123,18 @@ $(function() {
     }
     
     // Anchor:
-    if (scrollTop + height/4 >= silvia.offset().top) tickNav('.nav-silvia');
-    else if (scrollTop + height/4 >= anita.offset().top) tickNav('.nav-anita');
-    else if (scrollTop + height/4 >= veronika.offset().top) tickNav('.nav-veronika');
-    else if (scrollTop + height/4 >= nina.offset().top) tickNav('.nav-nina');
-    else if (scrollTop + height/4 >= woohooo.offset().top) tickNav('.nav-woohooo');
-    else clearNav();
+    var id = null;
+    sections.each(function() {
+      var self = $(this);
+      if (self.offset().top - scrollTop <= height/4) {
+        id = self.attr('id');
+      }
+    });
+    
+    tickNav(id);
     
     // Nav:
     checkNav();
   });
   
 });
-/* jshint ignore:end */

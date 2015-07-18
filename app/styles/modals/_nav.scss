@@ -3,6 +3,7 @@
   position: fixed;
   height: 100%;
   z-index: 100;
+  display: none;
 }
 
 .nav-list {
@@ -24,17 +25,17 @@ $nav-padding: 2px;
   display: block;
   height: 20%;
   background: transparentize(#FFF, .5) content-box;
-  padding: $nav-padding;
+  padding: $nav-padding 0 $nav-padding;
   
   &:before {
-    position: absolute;
     content: "";
     display: block;
+    position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    padding: $nav-padding;
+    padding: $nav-padding 0 $nav-padding;
     background: transparentize(#FFF, .6) content-box;
     transition: opacity .5s;
     opacity: 0;
@@ -118,6 +119,7 @@ $nav-padding: 2px;
   width: $nb-width + $nb-offset*2;
   height: $nb-height + $nb-offset*2 + ($nb-width+1)/2;
   z-index: 101;
+  background: transparentize(#000, .5); // TODO maybe
 }
 
 .nav-burger {
@@ -189,7 +191,6 @@ $nav-padding: 2px;
       left: $nav-width;
       padding: 0;
       background: none;
-      //overflow: auto;
     }
       
     $nav-border-m: 100px;

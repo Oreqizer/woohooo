@@ -2,10 +2,13 @@
   "name": "woohooo",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.1",
+    "jquery": "~2.1.4",
+    "gsap": "~1.17.0",
     "modernizr": "~2.8.1",
     "normalize.css": "~3.0.3",
-    "susy": "~2.2.5",
-    "gsap": "~1.17.0"
+    "susy": "~2.2.5"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4"
   }
 }
