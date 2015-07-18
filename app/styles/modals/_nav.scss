@@ -18,7 +18,7 @@
   background: transparentize(#000, .5);
 }
 
-// List: -----------------------------
+// List: ------------------------------------------------------------------------------
 $nav-padding: 2px;
 
 .nav-item {
@@ -37,7 +37,7 @@ $nav-padding: 2px;
     top: 0;
     left: 0;
     padding: $nav-padding 0 $nav-padding;
-    background: transparentize(#FFF, .6) content-box;
+    background: transparentize(#F00, .6) content-box;
     transition: opacity .5s;
     opacity: 0;
   }
@@ -55,6 +55,7 @@ $nav-padding: 2px;
     position: absolute;
     height: 100%;
     width: 100%;
+    z-index: 100;
   }
 }
 
@@ -113,7 +114,7 @@ $nav-padding: 2px;
   } 
 }
 
-// Button: --------------------------
+// Button: ----------------------------------------------------------------------------
 .nav-button {
   position: fixed;
   width: $nb-width + $nb-offset*2;
@@ -160,7 +161,7 @@ $nav-padding: 2px;
   }
 }
 
-// Open: --------------------------
+// Open: ------------------------------------------------------------------------------
 .open {
   .nav-list {
     transform: translateX($nav-width);
@@ -179,7 +180,7 @@ $nav-padding: 2px;
   }
 }
 
-// Desktop: -----------------------
+// Desktop: ---------------------------------------------------------------------------
 .no-touch {
   @include susy-media($l) {
     #nav {

@@ -2,6 +2,7 @@
 'use strict';
 
 $(function() {
+  
   // VARIABLES: -----------------------------------------------------------------------
   var height,
       width,
@@ -71,6 +72,9 @@ $(function() {
     });
     
     html.swipe({
+      swipeLeft: function() {
+        nav.removeClass('open');
+      },
       swipeRight: function() {
         nav.addClass('open');
       }
