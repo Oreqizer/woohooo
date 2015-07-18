@@ -67,7 +67,7 @@ $(function() {
       swipeLeft: function() {
         nav.removeClass('open');
       },
-      excludedElements: "button, input, select, textarea, .noSwipe"
+      excludedElements: 'button, input, select, textarea, .noSwipe'
     });
     
     html.swipe({
