@@ -1,4 +1,4 @@
-/* jshint devel:false */
+/* jshint devel:true */
 'use strict';
 
 $(function() {
@@ -26,6 +26,7 @@ $(function() {
   
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
+    
     if (html.hasClass('touch')) {
       height = window.screen.height;
       width = window.screen.width;
@@ -33,15 +34,18 @@ $(function() {
       height = win.height();
       width = win.width();
     }
+    
   }
   
   function screenDimensions() {
     if (html.hasClass('touch')) {
+      
       touch = true;
       nav.css({'height' : height + 'px'});
       home.css({'height' : height + 'px'});
       header.css({'height' : height/2 + 'px'});
       content.css({'min-height' : height + 'px'});
+      
     }
   }
   
@@ -57,17 +61,27 @@ $(function() {
     nav.toggleClass('open');
   });
   
-  nav.swipe({
-    swipeLeft: function() {
-      nav.removeClass('open');
-    },
-    swipeRight: function() {
-      nav.addClass('open');
-    }
-  });
+  if (touch) {
+    
+    nav.swipe({
+      swipeLeft: function() {
+        nav.removeClass('open');
+      },
+      excludedElements: "button, input, select, textarea, .noSwipe"
+    });
+    
+    html.swipe({
+      swipeRight: function() {
+        nav.addClass('open');
+      }
+    });
+    
+  }
   
   $('.nav-anchor > a').each(function() {
+    
     $(this).on('click', function() {
+      
       var href = $.attr(this, 'href');
       TweenMax.to(root, 0.75, {
           scrollTop: $(href).offset().top,
@@ -76,34 +90,43 @@ $(function() {
           }
       });
       return false;
+      
     });
+    
   });
   
   // Helper functions:
   function checkNav() {
+    
     if (win.scrollTop() >= height) {
       nav.fadeIn();
     } else {
       nav.fadeOut();
       nav.removeClass('open');
     }
+    
   }
   
   function clearNav() {
+    
     navItems.each(function() {
       $(this).removeClass('active');
     });
+    
   }
   
   function tickNav(id) {
+    
     clearNav();
     if (id) {
       $('.nav-' + id).addClass('active');
     }
+    
   }
   
   // RESIZE: --------------------------------------------------------------------------
   win.on('resize', function() {
+    
     windowDimensions();
     screenDimensions();
     checkNav();
@@ -111,10 +134,12 @@ $(function() {
     if (width < 480 && !touch) {
       nav.removeClass('open');
     }
+    
   });
   
   // SCROLL: --------------------------------------------------------------------------
   win.on('scroll', function() {
+    
     var scrollTop = win.scrollTop();
     
     // Parallax:
