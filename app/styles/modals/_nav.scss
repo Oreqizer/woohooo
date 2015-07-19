@@ -12,21 +12,19 @@
   width: $nav-width;
   height: 100%;
   min-height: 480px;
-  padding: 40px 0 40px;
+  padding: 40px 0 (40px + $nav-margin);
   left: -$nav-width;
   transition: transform .5s;
   background: transparentize(#000, .5);
 }
 
 // List: ------------------------------------------------------------------------------
-$nav-padding: 2px;
 
 .nav-item {
   position: relative;
   display: block;
-  height: 20%;
-  background: content-box;
-  padding: $nav-padding 0 $nav-padding;
+  margin: $nav-margin;
+  height: calc(20% - #{$nav-margin});
   
   &:before {
     content: "";
@@ -34,10 +32,7 @@ $nav-padding: 2px;
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 0;
-    left: 0;
-    padding: $nav-padding 0 $nav-padding;
-    background: transparentize(#FFF, .6) content-box;
+    background: transparentize(#FFF, .6);
     transition: opacity .5s;
     opacity: 0;
   }
@@ -58,8 +53,6 @@ $nav-padding: 2px;
   width: 100%;
   height: 100%;
   top: 0;
-  padding: inherit;
-  background: content-box;
   
   &:before {
     content: "";
@@ -69,27 +62,32 @@ $nav-padding: 2px;
     width: 100%;
     top: 0;
     left: 0;
-    padding: $nav-padding 0 $nav-padding;
-    background: transparentize(#000, .4) content-box;
+    background: transparentize(#000, .4);
     transition: opacity .5s;
     opacity: 1;
   }
 }
-  
+
+// Active:
 .active {
   .nav-img:before {
     opacity: .2;
+  }
+  
+  .nav-text {
+    opacity: 0;
   }
 }
 
 .nav-text {
   display: block;
   position: relative;
+  padding-right: 8px;
   color: #FFF;
   text-align: right;
   text-shadow: 2px 2px 5px transparentize(#000, .5);
   font-size: 2em;
-  padding-right: 8px;
+  transition: opacity .5s;
 }
 
 .nav-subtext {
@@ -209,6 +207,9 @@ $nav-padding: 2px;
 
 // Desktop: ---------------------------------------------------------------------------
 .no-touch {
+  $nav-border-dt: 100px;
+  $nav-margin-dt: 10px;
+  
   @include susy-media($l) {
     #nav {
       right: 0;
@@ -217,29 +218,30 @@ $nav-padding: 2px;
     .nav-list {
       min-height: 480px;
       left: $nav-width;
-      padding: 0;
-      background: none;
+      padding: 0 0 $nav-margin-dt;
       transform: translateZ(0px); // transition font fix
     }
-      
-    $nav-border-m: 100px;
-    $nav-margin-m: 10px;
     
     .nav-item {
       transition: transform .5s;
-      padding: $nav-margin-m 0 $nav-margin-m 0;
+      height: calc(20% - #{$nav-margin-dt});
+      margin: $nav-margin-dt 0 $nav-margin-dt 0;
       
       &:hover {
         transform: translateX(-$nav-width);
       }
       
       &:before {
-        width: $nav-border-m;
+        width: $nav-border-dt;
         height: 100%;
-        top: $nav-margin-m;
-        left: -$nav-border-m + $nav-margin-m;
-        margin: -$nav-margin-m;
-        padding: $nav-margin-m 0 $nav-margin-m;
+        top: $nav-margin-dt;
+        left: -$nav-border-dt + $nav-margin-dt;
+        margin: -$nav-margin-dt;
+      }
+    
+      &.active:before {
+        background: transparentize(#FFF, .6);
+        opacity: 1;
       }
       
       .nav-text {
@@ -249,6 +251,14 @@ $nav-padding: 2px;
         left: -100%;
         font-size: 1em;
       }
+    }
+    
+    .nav-img:before {
+      opacity: .2;
+    }
+    
+    .active .nav-text {
+      opacity: 1;
     }
     
     .nav-button {
