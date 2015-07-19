@@ -15,6 +15,7 @@
   padding: 40px 0 40px;
   left: -$nav-width;
   transition: transform .5s;
+  backface-visibility: hidden;
   background: transparentize(#000, .5);
 }
 
