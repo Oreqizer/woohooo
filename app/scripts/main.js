@@ -122,7 +122,7 @@ $(function() {
   
   function tickNav(id) {
     
-    if (id != active) {
+    if (id !== active) {
       clearNav();
       
       if (id) {
