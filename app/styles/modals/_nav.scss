@@ -15,7 +15,6 @@
   padding: 40px 0 40px;
   left: -$nav-width;
   transition: transform .5s;
-  backface-visibility: hidden;
   background: transparentize(#000, .5);
 }
 
@@ -26,7 +25,7 @@ $nav-padding: 2px;
   position: relative;
   display: block;
   height: 20%;
-  background: transparentize(#FFF, .5) content-box;
+  background: content-box;
   padding: $nav-padding 0 $nav-padding;
   
   &:before {
@@ -42,12 +41,6 @@ $nav-padding: 2px;
     transition: opacity .5s;
     opacity: 0;
   }
-  
-  &.active {
-    &:before {
-      opacity: 1;
-    }
-  }
 }
 
 .nav-anchor {
@@ -60,22 +53,52 @@ $nav-padding: 2px;
   }
 }
 
+.nav-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  padding: inherit;
+  background: content-box;
+  
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: $nav-padding 0 $nav-padding;
+    background: transparentize(#000, .4) content-box;
+    transition: opacity .5s;
+    opacity: 1;
+  }
+}
+  
+.active {
+  .nav-img:before {
+    opacity: .2;
+  }
+}
+
 .nav-text {
   display: block;
+  position: relative;
   color: #FFF;
+  text-align: right;
   text-shadow: 2px 2px 5px transparentize(#000, .5);
   font-size: 2em;
-  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .nav-subtext {
   color: #F00;
   font-size: 1.5em;
-  font-weight: 100;
 }
 
 // List items:
-.nav-woohooo {
+.nav-woohooo .nav-img {
   background: {
     image: url("../images/car-cover-wide.jpg");
     size: cover;
@@ -83,7 +106,7 @@ $nav-padding: 2px;
   }
 }
 
-.nav-nina {
+.nav-nina .nav-img {
   background: {
     image: url("../images/nina.jpg");
     size: cover;
@@ -91,7 +114,7 @@ $nav-padding: 2px;
   }
 }
 
-.nav-veronika {
+.nav-veronika .nav-img {
   background: {
     image: url("../images/veronika.jpg");
     size: cover;
@@ -99,7 +122,7 @@ $nav-padding: 2px;
   } 
 }
 
-.nav-anita {
+.nav-anita .nav-img {
   background: {
     image: url("../images/anita.jpg");
     size: cover;
@@ -107,7 +130,7 @@ $nav-padding: 2px;
   } 
 }
 
-.nav-silvia {
+.nav-silvia .nav-img {
   background: {
     image: url("../images/silvia.jpg");
     size: cover;
@@ -121,7 +144,6 @@ $nav-padding: 2px;
   width: $nb-width + $nb-offset*2;
   height: $nb-height + $nb-offset*2 + ($nb-width+1)/2;
   z-index: 101;
-  background: transparentize(#000, .5); // TODO maybe
 }
 
 .nav-burger {
@@ -149,6 +171,10 @@ $nav-padding: 2px;
 
 // Button modernizr:
 .touch {
+  .nav-list {
+    backface-visibility: hidden; // mobile flicker fix  
+  }
+  
   .open {
     &#nav {
       overflow: auto;  
@@ -193,6 +219,7 @@ $nav-padding: 2px;
       left: $nav-width;
       padding: 0;
       background: none;
+      transform: translateZ(0px); // transition font fix
     }
       
     $nav-border-m: 100px;
@@ -218,7 +245,6 @@ $nav-padding: 2px;
       .nav-text {
         position: relative;
         display: block;
-        text-align: right;
         padding: 0 10px 0;
         left: -100%;
         font-size: 1em;

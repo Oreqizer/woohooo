@@ -71,6 +71,7 @@
   .home-woohooo-description {
     color: #F00;
   }
+  
   @include susy-media(min-aspect-ratio $ar-layout) {
     .home-woohooo-name {
       font-size: 3em;
@@ -159,7 +160,6 @@
 }
   
 .member-img {
-  display: block;
   height: 100%;
   width: 100%;
   
