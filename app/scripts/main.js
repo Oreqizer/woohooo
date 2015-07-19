@@ -7,6 +7,7 @@ $(function() {
   var height,
       width,
       touch,
+      active,
       win = $(window),
       doc = $(document),
       html = $('html'),
@@ -39,15 +40,15 @@ $(function() {
   }
   
   function screenDimensions() {
-//    if (html.hasClass('touch')) {
-//      
-//      touch = true;
-//      nav.css({'height' : height + 'px'});
-//      home.css({'height' : height + 'px'});
-//      header.css({'height' : height/2 + 'px'});
-//      content.css({'min-height' : height + 'px'});
-//      
-//    }
+    
+    if (html.hasClass('touch')) {
+      touch = true;
+      nav.css({'height' : height + 'px'});
+      home.css({'height' : height + 'px'});
+      header.css({'height' : height/2 + 'px'});
+      content.css({'min-height' : height + 'px'});
+    }
+    
   }
   
   // INIT: ----------------------------------------------------------------------------
@@ -121,10 +122,14 @@ $(function() {
   
   function tickNav(id) {
     
-    clearNav();
-    if (id) {
-      $('.nav-' + id).addClass('active');
+    if (id != active) {
+      clearNav();
+      
+      if (id) {
+        $('.nav-' + id).addClass('active');
+      }
     }
+    active = id;
     
   }
   
@@ -166,6 +171,7 @@ $(function() {
     
     // Nav:
     checkNav();
+    
   });
   
 });

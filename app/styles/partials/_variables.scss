@@ -1,3 +1,4 @@
+// General:
 $susy: (
   container: 100%,
   columns: 4,
@@ -5,6 +6,8 @@ $susy: (
   debug: ( image: show ),
   global-box-setting: border-box
 );
+
+$members: 4;
 
 // Colors:
 
