@@ -29,13 +29,15 @@ $(function() {
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
     
-    if (html.hasClass('touch')) {
-      height = window.screen.height;
-      width = window.screen.width;
-    } else {
-      height = win.height();
-      width = win.width();
-    }
+//    if (html.hasClass('touch')) {
+//      height = window.screen.height;
+//      width = window.screen.width;
+//    } else {
+//      height = win.height();
+//      width = win.width();
+//    }
+    height = window.innerHeight;
+    width = win.innerWidth;
     
   }
   
