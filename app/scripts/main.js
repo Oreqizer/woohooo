@@ -8,7 +8,6 @@ $(function() {
       width,
       touch,
       active,
-      ua = navigator.userAgent.toLowerCase(),
       win = $(window),
       doc = $(document),
       html = $('html'),
@@ -25,16 +24,19 @@ $(function() {
       silvia = $('#silvia'),
       
       header = $('.home-woohooo'),
-      sections = $('.main-section');
+      sections = $('.main-section'),
+      
+      android = navigator.userAgent.match(/Android/i);
   
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
-    
 
     height = win.height();
     width = win.width();
-    if (ua.indexOf('crmo') !== -1) {
+    
+    if (window.chrome && android) {
       height += 60;
+      alert('lol');
     }
   }
   
@@ -42,7 +44,7 @@ $(function() {
     
     if (html.hasClass('touch')) {
       touch = true;
-      if (ua.indexOf('crmo') !== -1) {
+      if (window.chrome && android) {
         nav.css({'height' : height + 'px'});
         home.css({'height' : height + 'px'});
         header.css({'height' : height/2 + 'px'});
