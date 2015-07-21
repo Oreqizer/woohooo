@@ -34,9 +34,6 @@ $(function() {
     height = win.height();
     width = win.width();
     
-    if (window.chrome && android) {
-      height += 60;
-    }
   }
   
   function mobileScreens() {
@@ -46,10 +43,10 @@ $(function() {
     }
     
     if (window.chrome && android) {
-      nav.css({'height' : height + 'px'});
-      home.css({'height' : height + 'px'});
-      header.css({'height' : height/2 + 'px'});
-      content.css({'min-height' : height + 'px'});
+      nav.css({'height' : height+60 + 'px'});
+      home.css({'height' : height+60 + 'px'});
+      header.css({'height' : (height+60)/2 + 'px'});
+      content.css({'min-height' : height+60 + 'px'});
     }
     
   }
