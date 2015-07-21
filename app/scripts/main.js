@@ -8,6 +8,7 @@ $(function() {
       width,
       touch,
       active,
+      ua = navigator.userAgent.toLowerCase(),
       win = $(window),
       doc = $(document),
       html = $('html'),
@@ -29,26 +30,24 @@ $(function() {
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
     
-//    if (html.hasClass('touch')) {
-//      height = window.screen.height;
-//      width = window.screen.width;
-//    } else {
-//      height = win.height();
-//      width = win.width();
-//    }
-    height = window.innerHeight;
-    width = window.innerWidth;
-    
+
+    height = win.height();
+    width = win.width();
+    if (ua.indexOf('crmo') !== -1) {
+      height += 60;
+    }
   }
   
   function screenDimensions() {
     
     if (html.hasClass('touch')) {
       touch = true;
-      nav.css({'height' : height + 'px'});
-      home.css({'height' : height + 'px'});
-      header.css({'height' : height/2 + 'px'});
-      content.css({'min-height' : height + 'px'});
+      if (ua.indexOf('crmo') !== -1) {
+        nav.css({'height' : height + 'px'});
+        home.css({'height' : height + 'px'});
+        header.css({'height' : height/2 + 'px'});
+        content.css({'min-height' : height + 'px'});
+      }
     }
     
   }
