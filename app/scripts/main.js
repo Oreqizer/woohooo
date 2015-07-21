@@ -36,24 +36,12 @@ $(function() {
     
   }
   
-  function mobileScreens() {
-    
-    if (html.hasClass('touch')) {
-      touch = true;
-    }
-    
-    if (window.chrome && android) {
-      nav.css({'height' : height+60 + 'px'});
-      home.css({'height' : height+60 + 'px'});
-      header.css({'height' : (height+60)/2 + 'px'});
-      content.css({'min-height' : height+60 + 'px'});
-    }
-    
-  }
-  
   // INIT: ----------------------------------------------------------------------------
   windowDimensions();
-  mobileScreens();
+    
+  if (html.hasClass('touch')) {
+    touch = true;
+  }
   
   // NAV: -----------------------------------------------------------------------------
   var navButton = $('.nav-button'),
@@ -170,14 +158,6 @@ $(function() {
     
     // Nav:
     checkNav();
-    
-  });
-  
-  // FIXES: ---------------------------------------------------------------------------
-  screen.addEventListener('orientationchange', function() {
-    
-    windowDimensions();
-    mobileScreens();
     
   });
   
