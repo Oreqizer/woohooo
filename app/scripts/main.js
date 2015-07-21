@@ -162,11 +162,9 @@ $(function() {
   });
   // FIX: -----------------------------------------------------------------------------
   function androidChromeFix() {
-    
-    height += 60;
 
     windowDimensions();
-    checkNav();
+    height += 60;
 
     if (width < 480 && !touch) {
       nav.removeClass('open');
@@ -176,6 +174,8 @@ $(function() {
     home.css({'height' : height + 'px'});
     header.css({'height' : height/2 + 'px'});
     content.css({'min-height' : height + 'px'});
+    
+    checkNav();
     
   }
   
@@ -187,8 +187,7 @@ $(function() {
     screen.addEventListener('orientationchange', function() {
       androidChromeFix();
     
-      html.hide();
-      html.show();
+      html.css('z-index', 1);
     });
     
   }
