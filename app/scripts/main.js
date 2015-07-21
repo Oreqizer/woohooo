@@ -177,6 +177,14 @@ $(function() {
   win.on('orientationchange', function() {
     
     mobileScreens();
+    alert('lol');
+    
+  });
+  
+  screen.addEventListener('orientationchange', function() {
+    
+    mobileScreens();
+    alert('lol');
     
   });
   
