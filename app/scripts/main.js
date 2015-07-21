@@ -26,7 +26,7 @@ $(function() {
       header = $('.home-woohooo'),
       sections = $('.main-section'),
       
-      android = navigator.userAgent.match(/Android/i);
+      android = navigator.userAgent.match(/Android/i) && window.chrome;
   
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
@@ -160,5 +160,21 @@ $(function() {
     checkNav();
     
   });
+  // FIX: -----------------------------------------------------------------------------
+  if (android) {
+    
+    win.off('resize');
+    screen.addEventListener('orientationchange', function() {
+    
+      windowDimensions();
+      checkNav();
+
+      if (width < 480 && !touch) {
+        nav.removeClass('open');
+      }
+
+    });
+    
+  }
   
 });
