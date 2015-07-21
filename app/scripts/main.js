@@ -36,27 +36,27 @@ $(function() {
     
     if (window.chrome && android) {
       height += 60;
-      alert('lol');
     }
   }
   
-  function screenDimensions() {
+  function mobileScreens() {
     
     if (html.hasClass('touch')) {
       touch = true;
-      if (window.chrome && android) {
-        nav.css({'height' : height + 'px'});
-        home.css({'height' : height + 'px'});
-        header.css({'height' : height/2 + 'px'});
-        content.css({'min-height' : height + 'px'});
-      }
+    }
+    
+    if (window.chrome && android) {
+      nav.css({'height' : height + 'px'});
+      home.css({'height' : height + 'px'});
+      header.css({'height' : height/2 + 'px'});
+      content.css({'min-height' : height + 'px'});
     }
     
   }
   
   // INIT: ----------------------------------------------------------------------------
   windowDimensions();
-  screenDimensions();
+  mobileScreens();
   
   // NAV: -----------------------------------------------------------------------------
   var navButton = $('.nav-button'),
@@ -140,7 +140,6 @@ $(function() {
   win.on('resize', function() {
     
     windowDimensions();
-    screenDimensions();
     checkNav();
     
     if (width < 480 && !touch) {
@@ -174,6 +173,13 @@ $(function() {
     
     // Nav:
     checkNav();
+    
+  });
+  
+  // FIXES: ---------------------------------------------------------------------------
+  win.on('orientationchange', function() {
+    
+    mobileScreens();
     
   });
   
