@@ -163,17 +163,19 @@ $(function() {
   // FIX: -----------------------------------------------------------------------------
   function androidChromeFix() {
     
-      windowDimensions();
-      checkNav();
+    height += 60;
 
-      if (width < 480 && !touch) {
-        nav.removeClass('open');
-      }
-      
-      nav.css({'height' : height + 'px'});
-      home.css({'height' : height + 'px'});
-      header.css({'height' : height/2 + 'px'});
-      content.css({'min-height' : height + 'px'});
+    windowDimensions();
+    checkNav();
+
+    if (width < 480 && !touch) {
+      nav.removeClass('open');
+    }
+
+    nav.css({'height' : height + 'px'});
+    home.css({'height' : height + 'px'});
+    header.css({'height' : height/2 + 'px'});
+    content.css({'min-height' : height + 'px'});
     
   }
   
@@ -184,15 +186,11 @@ $(function() {
     
     screen.addEventListener('orientationchange', function() {
       androidChromeFix();
+    
+      html.hide();
+      html.show();
     });
     
   }
-  
-  screen.addEventListener('orientationchange', function() {
-    
-    html.hide();
-    html.show();
-    
-  });
   
 });
