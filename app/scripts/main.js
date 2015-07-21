@@ -188,4 +188,11 @@ $(function() {
     
   }
   
+  screen.addEventListener('orientationchange', function() {
+    
+    html.hide();
+    html.show();
+    
+  });
+  
 });
