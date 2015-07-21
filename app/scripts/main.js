@@ -161,10 +161,7 @@ $(function() {
     
   });
   // FIX: -----------------------------------------------------------------------------
-  if (android) {
-    
-    win.off('resize');
-    screen.addEventListener('orientationchange', function() {
+  function androidChromeFix() {
     
       windowDimensions();
       checkNav();
@@ -172,7 +169,21 @@ $(function() {
       if (width < 480 && !touch) {
         nav.removeClass('open');
       }
-
+      
+      nav.css({'height' : height + 'px'});
+      home.css({'height' : height + 'px'});
+      header.css({'height' : height/2 + 'px'});
+      content.css({'min-height' : height + 'px'});
+    
+  }
+  
+  if (android) {
+    
+    win.off('resize');
+    androidChromeFix();
+    
+    screen.addEventListener('orientationchange', function() {
+      androidChromeFix();
     });
     
   }
