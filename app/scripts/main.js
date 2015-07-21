@@ -37,19 +37,19 @@ $(function() {
 //      width = win.width();
 //    }
     height = window.innerHeight;
-    width = win.innerWidth;
+    width = window.innerWidth;
     
   }
   
   function screenDimensions() {
     
-//    if (html.hasClass('touch')) {
+    if (html.hasClass('touch')) {
       touch = true;
-//      nav.css({'height' : height + 'px'});
-//      home.css({'height' : height + 'px'});
-//      header.css({'height' : height/2 + 'px'});
-//      content.css({'min-height' : height + 'px'});
-//    }
+      nav.css({'height' : height + 'px'});
+      home.css({'height' : height + 'px'});
+      header.css({'height' : height/2 + 'px'});
+      content.css({'min-height' : height + 'px'});
+    }
     
   }
   
