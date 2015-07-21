@@ -174,17 +174,10 @@ $(function() {
   });
   
   // FIXES: ---------------------------------------------------------------------------
-  win.on('orientationchange', function() {
-    
-    mobileScreens();
-    alert('lol');
-    
-  });
-  
   screen.addEventListener('orientationchange', function() {
     
+    windowDimensions();
     mobileScreens();
-    alert('lol');
     
   });
   
