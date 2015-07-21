@@ -42,7 +42,7 @@ $(function() {
   function screenDimensions() {
     
 //    if (html.hasClass('touch')) {
-//      touch = true;
+      touch = true;
 //      nav.css({'height' : height + 'px'});
 //      home.css({'height' : height + 'px'});
 //      header.css({'height' : height/2 + 'px'});
