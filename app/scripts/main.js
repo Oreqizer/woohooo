@@ -185,7 +185,7 @@ $(function() {
     androidChromeFix();
     
     screen.addEventListener('orientationchange', function() {
-      home.css('z-index', 1);
+      root.css('z-index', 1);
       
       androidChromeFix();
     });
