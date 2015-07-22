@@ -24,9 +24,7 @@ $(function() {
       silvia = $('#silvia'),
       
       header = $('.home-woohooo'),
-      sections = $('.main-section'),
-      
-      android = navigator.userAgent.match(/Android/i) && window.chrome;
+      sections = $('.main-section');
   
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
@@ -161,6 +159,8 @@ $(function() {
     
   });
   // FIX: -----------------------------------------------------------------------------
+  var android = navigator.userAgent.match(/Android/i) && window.chrome;
+  
   function androidChromeFix() {
 
     windowDimensions();
@@ -184,12 +184,12 @@ $(function() {
     win.off('resize');
     androidChromeFix();
     
+  }
+    
     screen.addEventListener('orientationchange', function() {
-      root.css('z-index', 1);
+//      root.css('z-index', 1);
       alert('here');
       androidChromeFix();
     });
-    
-  }
   
 });
