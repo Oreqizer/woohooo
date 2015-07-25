@@ -132,22 +132,28 @@ $(function() {
   });
   
   // SCROLL: --------------------------------------------------------------------------
+  var bg = $('.content-bg');
+  
   win.on('scroll', function() {
     
-    var scrollTop = win.scrollTop();
+    var wScroll = win.scrollTop();
     
     // Parallax:
-    if (scrollTop > height/2) {
+    if (wScroll > height/2) {
       header.addClass('hidden');
     } else {
       header.removeClass('hidden');
     }
     
+    bg.css({
+      'transform': 'translate3d(0, -' + (wScroll/doc.height())*50 + '%, 0)'
+    });
+    
     // Anchor:
     var id = null;
     sections.each(function() {
       var self = $(this);
-      if (self.offset().top - scrollTop <= height/4) {
+      if (self.offset().top - wScroll <= height/4) {
         id = self.attr('id');
       }
     });

@@ -3,7 +3,7 @@ $susy: (
   container: 100%,
   columns: 4,
   gutters: .125,
-  debug: ( image: show ),
+//  debug: ( image: show ),
   global-box-setting: border-box
 );
 
@@ -31,6 +31,8 @@ $nb-offset: 10px;
 
 // content:
 $heading: 10vh;
+$space: 10px;
+  
 $border-mini: 5px;
 $border: 50px;
 $border-dt: 110px;

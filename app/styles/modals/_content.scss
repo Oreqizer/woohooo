@@ -4,11 +4,35 @@
   width: 100%;
 }
 
+.content-bg {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 167%;
+  width: 100%;
+  background: {
+    image: url("../images/car-cover-wide.jpg");
+    size: cover;
+    position: center;
+  }
+  filter: grayscale(100%);
+  z-index: -1;
+  
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: transparentize(#000, .3);
+  }
+}
+
+// Main: ------------------------------------------------------------------------------
 .main-section {
   position: relative;
   min-height: 100%;
   border: solid $red;
-  background: $dark;
   border-width: 0 $border-mini 0 $border-mini;
   
   @include susy-media($s) {
@@ -34,7 +58,7 @@
   height: 100%;
   
   @include susy-breakpoint($m, 8) {
-    @include show-grid();
+//    @include show-grid();
     @include span(8);
   }
 }
@@ -42,6 +66,7 @@
 .section-cover,
 .section-about {
   position: relative;
+  padding: $space;
 }
   
 .section-cover {
@@ -54,9 +79,11 @@
   position: relative;
   height: 100%;
   overflow: hidden;
+  margin-bottom: $space;
   
   @include susy-breakpoint($l, 8) {
     @include span(4);
+    margin-bottom: 0;
   }
   
   &:last-child {
