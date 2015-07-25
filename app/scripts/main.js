@@ -87,9 +87,9 @@ $(function() {
   });
   
   // Helper functions:
-  function checkNav() {
+  function checkNav(wScroll) {
     
-    if (win.scrollTop() >= height) {
+    if (wScroll >= height) {
       nav.fadeIn();
     } else {
       nav.fadeOut();
@@ -135,7 +135,6 @@ $(function() {
   var bg = $('.content-bg');
   
   win.on('scroll', function() {
-    
     var wScroll = win.scrollTop();
     
     // Anchor:
@@ -146,33 +145,29 @@ $(function() {
         id = self.attr('id');
       }
     });
-    
     tickNav(id);
     
     // Nav:
-    checkNav();
+    checkNav(wScroll);
     
   });
   
   if (!touch) {
+    var docHeight = doc.height() - height;
     
     win.on('scroll', function() {
-      
       var wScroll = win.scrollTop();
       
       // Parallax:
       bg.css({
-        'transform': 'translate3d(0, -' + (wScroll/doc.height())*50 + '%, 0)'
+        'transform': 'translate3d(0, -' + (wScroll/docHeight)*50 + '%, 0)'
       });
-      
     });
     
   } else {
-    
     bg.css({
       'transform': 'translate3d(0, -' + 25 + '%, 0)'
     });
-    
   }
   
 });
