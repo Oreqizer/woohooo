@@ -2,7 +2,7 @@
 $susy: (
   container: 100%,
   columns: 4,
-  gutters: 0,
+  gutters: .125,
   debug: ( image: show ),
   global-box-setting: border-box
 );
@@ -10,6 +10,8 @@ $susy: (
 $members: 4;
 
 // Colors:
+$red: #F13F33;
+$dark: #2D2D2D;
 
 // Sizes:
 $s: 480px;
@@ -26,6 +28,13 @@ $nav-margin: 2px;
 $nb-width: 30px;
 $nb-height: 3px;
 $nb-offset: 10px;
+
+// content:
+$heading: 10vh;
+$border-mini: 5px;
+$border: 50px;
+$border-dt: 110px;
+
 
 // @media:
 $ar-layout: '1/1';

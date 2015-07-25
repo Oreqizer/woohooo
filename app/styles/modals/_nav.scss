@@ -91,7 +91,7 @@
 }
 
 .nav-subtext {
-  color: #F00;
+  color: $red;
   font-size: 1.5em;
 }
 
@@ -226,9 +226,18 @@
       transition: transform .5s;
       height: calc(100%/#{$members} - #{$nav-margin-dt});
       margin: $nav-margin-dt 0 $nav-margin-dt 0;
+  
+      .nav-subtext {
+        transition: color .5s;
+        color: #000;
+      }
       
       &:hover {
         transform: translateX(-$nav-width);
+          
+        .nav-subtext {
+          color: $red;
+        }
       }
       
       &:before {

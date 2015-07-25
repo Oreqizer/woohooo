@@ -6,12 +6,11 @@
 
 // Woohooo: ---------------------------------------------------------------------------
 .home-woohooo {
-  position: absolute;
+  position: relative;
   height: 50%;
   width: 100%;
   min-width: $page-min-width;
   background: #000;
-  border: solid 2px #000;
   overflow: hidden;
   
   &.hidden {
@@ -19,19 +18,18 @@
   }
 }
 
-.home-woohooo-img,
-.home-woohooo-img-text {
-  position: absolute;
-}
-
 .home-woohooo-img {
-  height: 100%;
+  position: fixed;
+  height: 50%;
   width: 100%;
+  top: 0;
+  left: 0;
+  border: solid 2px #000;
   background: {
-    image: url("../images/car-cover-wide.jpg");
+    image: url("../images/car-cover2.jpg");
     size: cover;
-    position: center 50%;
-    attachment: fixed;
+    position: center top;
+    repeat: no-repeat;
   }
   
   &:before {
@@ -45,6 +43,7 @@
 }
 
 .home-woohooo-img-text {
+  position: absolute;
   left: 10px;
   bottom: 20%;
 }
@@ -69,7 +68,7 @@
 // Woohooo modernizr:
 .touch {
   .home-woohooo-description {
-    color: #F00;
+    color: $red;
   }
   
   @include susy-media(min-aspect-ratio $ar-layout) {
@@ -118,8 +117,10 @@
     }
     
     &:hover {
+      cursor: default;
+      
       .home-woohooo-description {
-        color: #F00;
+        color: $red;
       }
     }
   }
@@ -138,11 +139,10 @@
 // Members: ---------------------------------------------------------------------------
 #members {
   position: relative;
-  top: 50%;
   width: 100%;
   min-width: $page-min-width;
   height: 50%;
-  z-index: 2;
+//  z-index: 2;
 }
 
 .member {
@@ -266,7 +266,7 @@
 // Members modernizr:
 .touch {
   .member-description {
-    color: #F00;
+    color: $red;
   }
 }
 

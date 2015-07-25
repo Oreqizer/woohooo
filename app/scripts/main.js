@@ -158,36 +158,5 @@ $(function() {
     checkNav();
     
   });
-  // FIX: -----------------------------------------------------------------------------
-//  var android = navigator.userAgent.match(/Android/i) && window.chrome;
-//  
-//  function androidChromeFix() {
-//
-//    windowDimensions();
-//    height += 60;
-//
-//    if (width < 480 && !touch) {
-//      nav.removeClass('open');
-//    }
-//
-//    nav.css({'height' : height + 'px'});
-//    home.css({'height' : height + 'px'});
-//    header.css({'height' : height/2 + 'px'});
-//    content.css({'min-height' : height + 'px'});
-//    
-//    checkNav();
-//    
-//  }
-//  
-//  if (android) {
-//    
-//    win.off('resize');
-//    androidChromeFix();
-//    
-//    screen.addEventListener('orientationchange', function() { // not working
-//      androidChromeFix(); 
-//    });
-//    
-//  }
   
 });

@@ -1,25 +1,88 @@
 #content {
-  @include container;
+  position: relative;
   height: 100%;
-  z-index: 2;
-  
-  @include susy-breakpoint($m, 8) {
-    @include show-grid;
-  }
-  
-  @include susy-breakpoint($xl, 16) {
-    @include show-grid;
-  }
+  width: 100%;
 }
 
 .main-section {
+  position: relative;
   min-height: 100%;
+  border: solid $red;
+  background: $dark;
+  border-width: 0 $border-mini 0 $border-mini;
   
-  > h1 {
-    margin: 0;
-    padding-left: 60px;
-    font-size: 8vw;
-    font-weight: bold;
-    color: #FFF;
+  @include susy-media($s) {
+    border-width: 0 $border 0 $border;
+  }
+  
+  @include susy-media($l) {
+    border-width: 0 $border-dt 0 $border-dt;
+  }
+}
+  
+.section-heading {
+  margin: 0;
+  font-size: $heading;
+  font-weight: bold;
+  color: #FFF;
+  padding-left: 50 - $border-mini*2;
+}
+
+.wrap {
+  @include container;
+  @include span(4);
+  height: 100%;
+  
+  @include susy-breakpoint($m, 8) {
+    @include show-grid();
+    @include span(8);
+  }
+}
+
+.section-cover,
+.section-about {
+  position: relative;
+}
+  
+.section-cover {
+  height: 50 - $heading;
+}
+
+.section-image {
+  @include span(4);
+  display: block;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  
+  @include susy-breakpoint($l, 8) {
+    @include span(4);
+  }
+  
+  &:last-child {
+    @include last();
+  }
+}
+  
+
+
+// Nina:
+#nina {
+  .img-1 {
+    background: {
+      image: url("../images/content/nina-cover.jpg");
+      size: cover;
+      position: center 25%;
+      repeat: no-repeat;
+    }
+  }
+  
+  .img-2 {
+    background: {
+      image: url("../images/content/nina-cover-2.jpg");
+      size: cover;
+      position: center 20%;
+      repeat: no-repeat;
+    }
   }
 }
