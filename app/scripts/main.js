@@ -139,12 +139,6 @@ $(function() {
     var wScroll = win.scrollTop();
     
     // Parallax:
-    if (wScroll > height/2) {
-      header.addClass('hidden');
-    } else {
-      header.removeClass('hidden');
-    }
-    
     bg.css({
       'transform': 'translate3d(0, -' + (wScroll/doc.height())*50 + '%, 0)'
     });
