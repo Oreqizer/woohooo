@@ -138,11 +138,6 @@ $(function() {
     
     var wScroll = win.scrollTop();
     
-    // Parallax:
-    bg.css({
-      'transform': 'translate3d(0, -' + (wScroll/doc.height())*50 + '%, 0)'
-    });
-    
     // Anchor:
     var id = null;
     sections.each(function() {
@@ -158,5 +153,26 @@ $(function() {
     checkNav();
     
   });
+  
+  if (!touch) {
+    
+    win.on('scroll', function() {
+      
+      var wScroll = win.scrollTop();
+      
+      // Parallax:
+      bg.css({
+        'transform': 'translate3d(0, -' + (wScroll/doc.height())*50 + '%, 0)'
+      });
+      
+    });
+    
+  } else {
+    
+    bg.css({
+      'transform': 'translate3d(0, -' + 25 + '%, 0)'
+    });
+    
+  }
   
 });
