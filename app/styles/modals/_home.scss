@@ -1,45 +1,23 @@
 // Main: ------------------------------------------------------------------------------
 #home {
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  z-index: 101;
 }
 
 // Woohooo: ---------------------------------------------------------------------------
 .home-woohooo {
   position: relative;
-  height: 50%;
-  width: 100%;
-  min-width: $page-min-width;
-  background: #000;
-  overflow: hidden;
-}
-
-.home-woohooo-img {
-  position: relative;
   height: 100%;
   width: 100%;
-  border: solid 2px #000;
-  background: {
-    image: url("../images/car-cover.jpg");
-    size: cover;
-    position: center top;
-    repeat: no-repeat;
-  }
-  
-  &:before {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 100%;
-    background: #000;
-    opacity: .3;
-  }
+  min-width: $page-min-width;
+  background: transparentize(#FFF, .5);
 }
 
-.home-woohooo-img-text {
+.home-woohooo-text {
   position: absolute;
-  left: 10px;
-  bottom: 20%;
+  margin: 0 auto 0 auto;
 }
 
 .home-woohooo-name,
@@ -130,168 +108,171 @@
   }
 }
 
+// Test:
+
+
 // Members: ---------------------------------------------------------------------------
-#members {
-  position: relative;
-  width: 100%;
-  min-width: $page-min-width;
-  height: 50%;
-}
-
-.member {
-  position: relative;
-  height: 50%;
-  width: 50%;
-  float: left;
-  border: solid 2px #000;
-  overflow: hidden;
-  
-  @include susy-media(min-aspect-ratio $ar-layout) {
-    height: 100%;
-    width: 25%;
-  }
-}
-  
-.member-img {
-  height: 100%;
-  width: 100%;
-  
-  &:before {
-    content: "";
-    display: block;
-    height: 100%;
-    width: 100%;
-    background: #000;
-    opacity: .5;
-  }
-}
-  
-.member-text {
-  position: relative;
-  display: block;
-  top: -50%;
-  left: 5%;
-  color: #FFF;
-  text-shadow: 2px 2px 5px transparentize(#000, .5);
-}
-
-.member-name {
-  font-size: 1.2em;
-  
-  @include susy-media($s) {
-    font-size: 1.4em;
-  }
-  
-  @include susy-media($m) {
-    font-size: 2em;
-  }
-  
-  @include susy-media($l) {
-    font-size: 2.8em;
-  }
-  
-  @include susy-media($xl) {
-    font-size: 4em;
-  }
-}
-
-.member-description {
-  font-size: .9em;
-  font-weight: 100;
-  
-  @include susy-media($s) {
-    font-size: 1.2em;
-  }
-  
-  @include susy-media($m) {
-    font-size: 1.5em;
-  }
-  
-  @include susy-media($l) {
-    font-size: 2em;
-  }
-  
-  @include susy-media($xl) {
-    font-size: 2.5em;
-  }
-}
-
-.member-nina {
-  > .member-img {
-    background: {
-      image: url("../images/nina.jpg");
-      size: cover;
-      position: center 10%;
-    } 
-  }
-}
-
-.member-veronika {
-  > .member-img {
-    background: {
-      image: url("../images/veronika.jpg");
-      size: cover;
-      position: center 10%;
-    } 
-  }
-}
-
-.member-anita {
-  > .member-img {
-    background: {
-      image: url("../images/anita.jpg");
-      size: cover;
-      position: center 20%;
-    } 
-  }
-}
-
-.member-silvia {
-  > .member-img {
-    background: {
-      image: url("../images/silvia.jpg");
-      size: cover;
-      position: center top;
-    } 
-  }
-}
-
-// Members modernizr:
-.touch {
-  .member-description {
-    color: $red;
-  }
-}
-
-.no-touch {
-  .member {
-    > .member-text {
-      transition: opacity .5s;
-    }
-    
-    > .member-img {
-      transition: transform .5s;
-
-      &:before {
-        transition: opacity .5s;
-      }
-    }
-    
-    &:hover {
-      cursor: pointer;
-      
-      > .member-img {
-        transform: scale(1.1);
-        transition: opacity .5s, transform 5s linear;
-        
-        &:before {
-          opacity: 0;
-        }
-      }
-
-      > .member-text {
-        opacity: 0;
-      }
-    }
-  }
-}
+//#members {
+//  position: relative;
+//  width: 100%;
+//  min-width: $page-min-width;
+//  height: 50%;
+//}
+//
+//.member {
+//  position: relative;
+//  height: 50%;
+//  width: 50%;
+//  float: left;
+//  border: solid 2px #000;
+//  overflow: hidden;
+//  
+//  @include susy-media(min-aspect-ratio $ar-layout) {
+//    height: 100%;
+//    width: 25%;
+//  }
+//}
+//  
+//.member-img {
+//  height: 100%;
+//  width: 100%;
+//  
+//  &:before {
+//    content: "";
+//    display: block;
+//    height: 100%;
+//    width: 100%;
+//    background: #000;
+//    opacity: .5;
+//  }
+//}
+//  
+//.member-text {
+//  position: relative;
+//  display: block;
+//  top: -50%;
+//  left: 5%;
+//  color: #FFF;
+//  text-shadow: 2px 2px 5px transparentize(#000, .5);
+//}
+//
+//.member-name {
+//  font-size: 1.2em;
+//  
+//  @include susy-media($s) {
+//    font-size: 1.4em;
+//  }
+//  
+//  @include susy-media($m) {
+//    font-size: 2em;
+//  }
+//  
+//  @include susy-media($l) {
+//    font-size: 2.8em;
+//  }
+//  
+//  @include susy-media($xl) {
+//    font-size: 4em;
+//  }
+//}
+//
+//.member-description {
+//  font-size: .9em;
+//  font-weight: 100;
+//  
+//  @include susy-media($s) {
+//    font-size: 1.2em;
+//  }
+//  
+//  @include susy-media($m) {
+//    font-size: 1.5em;
+//  }
+//  
+//  @include susy-media($l) {
+//    font-size: 2em;
+//  }
+//  
+//  @include susy-media($xl) {
+//    font-size: 2.5em;
+//  }
+//}
+//
+//.member-nina {
+//  > .member-img {
+//    background: {
+//      image: url("../images/nina.jpg");
+//      size: cover;
+//      position: center 10%;
+//    } 
+//  }
+//}
+//
+//.member-veronika {
+//  > .member-img {
+//    background: {
+//      image: url("../images/veronika.jpg");
+//      size: cover;
+//      position: center 10%;
+//    } 
+//  }
+//}
+//
+//.member-anita {
+//  > .member-img {
+//    background: {
+//      image: url("../images/anita.jpg");
+//      size: cover;
+//      position: center 20%;
+//    } 
+//  }
+//}
+//
+//.member-silvia {
+//  > .member-img {
+//    background: {
+//      image: url("../images/silvia.jpg");
+//      size: cover;
+//      position: center top;
+//    } 
+//  }
+//}
+//
+//// Members modernizr:
+//.touch {
+//  .member-description {
+//    color: $red;
+//  }
+//}
+//
+//.no-touch {
+//  .member {
+//    > .member-text {
+//      transition: opacity .5s;
+//    }
+//    
+//    > .member-img {
+//      transition: transform .5s;
+//
+//      &:before {
+//        transition: opacity .5s;
+//      }
+//    }
+//    
+//    &:hover {
+//      cursor: pointer;
+//      
+//      > .member-img {
+//        transform: scale(1.1);
+//        transition: opacity .5s, transform 5s linear;
+//        
+//        &:before {
+//          opacity: 0;
+//        }
+//      }
+//
+//      > .member-text {
+//        opacity: 0;
+//      }
+//    }
+//  }
+//}

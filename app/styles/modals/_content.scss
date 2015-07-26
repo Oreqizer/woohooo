@@ -5,7 +5,7 @@
 }
 
 .content-bg {
-  top: 0;
+  bottom: 0;
   left: 0;
   position: fixed;
   height: 200vh;
@@ -59,7 +59,7 @@
   
   @include susy-breakpoint($m, 8) {
 //    @include show-grid();
-    @include span(8);
+    @include span(4);
   }
 }
 
@@ -80,19 +80,17 @@
   height: 100%;
   overflow: hidden;
   margin-bottom: $space;
+  border: solid $img-border #000;
   
-  @include susy-breakpoint($l, 8) {
-    @include span(4);
-    margin-bottom: 0;
-  }
-  
-  &:last-child {
-    @include last();
+  @include susy-media(min-aspect-ratio $ar-layout) {
+    @include span(2);
+    
+    &:last-child {
+      @include last;
+    }
   }
 }
   
-
-
 // Nina:
 #nina {
   .img-1 {

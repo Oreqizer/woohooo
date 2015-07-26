@@ -11,6 +11,7 @@ $(function() {
       win = $(window),
       doc = $(document),
       html = $('html'),
+      body = $('body'),
       root = $('html, body'),
       
       home = $('#home'),
@@ -70,7 +71,6 @@ $(function() {
   }
   
   $('.nav-anchor > a').each(function() {
-    
     $(this).on('click', function() {
       
       var href = $.attr(this, 'href');
@@ -83,21 +83,9 @@ $(function() {
       return false;
       
     });
-    
   });
   
   // Helper functions:
-  function checkNav(wScroll) {
-    
-    if (wScroll >= height) {
-      nav.fadeIn();
-    } else {
-      nav.fadeOut();
-      nav.removeClass('open');
-    }
-    
-  }
-  
   function clearNav() {
     
     navItems.each(function() {
@@ -123,7 +111,6 @@ $(function() {
   win.on('resize', function() {
     
     windowDimensions();
-    checkNav();
     
     if (width < 480 && !touch) {
       nav.removeClass('open');
@@ -135,6 +122,7 @@ $(function() {
   var bg = $('.content-bg');
   
   win.on('scroll', function() {
+    
     var wScroll = win.scrollTop();
     
     // Anchor:
@@ -147,11 +135,9 @@ $(function() {
     });
     tickNav(id);
     
-    // Nav:
-    checkNav(wScroll);
-    
   });
   
+  // desktop:
   if (!touch) {
     var docHeight = doc.height() - height;
     
@@ -160,14 +146,16 @@ $(function() {
       
       // Parallax:
       bg.css({
-        'transform': 'translate3d(0, -' + (wScroll/docHeight)*50 + '%, 0)'
+        'transform': 'translate3d(0, ' + (wScroll/docHeight)*50 + '%, 0)'
       });
     });
     
   } else {
     bg.css({
-      'transform': 'translate3d(0, -' + 25 + '%, 0)'
+      'transform': 'translate3d(0, ' + 25 + '%, 0)'
     });
   }
+  
+  // CLICK: ---------------------------------------------------------------------------
   
 });
