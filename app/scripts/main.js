@@ -37,6 +37,7 @@ $(function() {
   
   // INIT: ----------------------------------------------------------------------------
   windowDimensions();
+  checkNav();
     
   if (html.hasClass('touch')) {
     touch = true;
@@ -86,6 +87,17 @@ $(function() {
   });
   
   // Helper functions:
+  function checkNav() {
+    
+    if (win.scrollTop() >= height) {
+      nav.fadeIn();
+    } else {
+      nav.removeClass('open');
+      nav.fadeOut();
+    }
+    
+  }
+  
   function clearNav() {
     
     navItems.each(function() {
@@ -111,6 +123,7 @@ $(function() {
   win.on('resize', function() {
     
     windowDimensions();
+    checkNav();
     
     if (width < 480 && !touch) {
       nav.removeClass('open');
@@ -125,7 +138,7 @@ $(function() {
     
     var wScroll = win.scrollTop();
     
-    // Anchor:
+    // Nav:
     var id = null;
     sections.each(function() {
       var self = $(this);
@@ -134,6 +147,7 @@ $(function() {
       }
     });
     tickNav(id);
+    checkNav();
     
   });
   

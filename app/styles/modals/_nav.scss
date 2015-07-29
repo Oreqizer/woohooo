@@ -27,11 +27,7 @@
   height: calc(100%/#{$members} - #{$nav-margin});
   
   &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    @include pseudo-full();
     background: transparentize(#FFF, .6);
     transition: opacity .5s;
     opacity: 0;
@@ -56,11 +52,7 @@
   top: 0;
   
   &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    @include pseudo-full();
     top: 0;
     left: 0;
     background: transparentize(#000, .4);

@@ -11,6 +11,20 @@
 
 @include border-box-sizing;
 
+// General classes:
+.wrap {
+  @include container();
+  
+  @include susy-breakpoint($m, 8) {
+//    @include show-grid();
+  }
+  
+  @include susy-breakpoint($xl, 16) {
+//    @include show-grid();
+  }
+}
+
+// Reset:
 html, body {
   padding: 0;
   margin: 0;

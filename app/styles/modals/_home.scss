@@ -1,278 +1,98 @@
 // Main: ------------------------------------------------------------------------------
 #home {
   position: relative;
-  width: 100%;
   height: 100vh;
+  width: 100%;
   z-index: 101;
+  min-width: $page-min-width;
+  background: {
+    image: url('../images/car-cover.jpg');
+    size: cover;
+    position: center;
+  }
+  
+  &:before {
+    @include pseudo-full();
+    background: transparentize(#000, .85);
+  }
 }
 
 // Woohooo: ---------------------------------------------------------------------------
-.home-woohooo {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  min-width: $page-min-width;
-  background: transparentize(#FFF, .5);
-}
-
-.home-woohooo-text {
+.home-heading {
   position: absolute;
-  margin: 0 auto 0 auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.home-woohooo-name,
-.home-woohooo-description {
-  position: relative;
-  color: #FFF;
-  line-height: 100%;
-  text-shadow: 2px 2px 5px transparentize(#000, .5);
-}
-
-.home-woohooo-name {
-  font-size: 14vw;
-}
-
-.home-woohooo-description {
-  font-weight: 100;
-  font-size: 9vw;
-}
-
-// Woohooo modernizr:
-.touch {
-  .home-woohooo-description {
-    color: $red;
+.home-text {
+  text-align: center;
+  line-height: 1;
+  font-size: 16vw;
+  color: transparentize(#FFF, .15);
+  cursor: default;
+  
+  @include susy-media($m) {
+    font-size: 13vw;
   }
   
-  @include susy-media(min-aspect-ratio $ar-layout) {
-    .home-woohooo-name {
-      font-size: 3em;
-
-      @include susy-media($m) {
-        font-size: 4em;
-      }
-
-      @include susy-media($l) {
-        font-size: 5.5em;
-      }
-
-      @include susy-media($xl) {
-        font-size: 7em;
-      }
-    }
-
-    .home-woohooo-description {
-      font-size: 2em;
-
-      @include susy-media($s) {
-        font-size: 2.5em;
-      }
-
-      @include susy-media($m) {
-        font-size: 3em;
-      }
-
-      @include susy-media($l) {
-        font-size: 4em;
-      }
-
-      @include susy-media($xl) {
-        font-size: 5em;
-      }
+  @include susy-media($xl) {
+    font-size: 10vw;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  span {
+    display: block;
+    transition: color .5s;
+    font: {
+      size: .35em;
+      weight: 100;
     }
   }
 }
 
+.home-link {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+}
+
+.home-arrow {
+  transition: fill .5s;
+  fill: transparentize(#FFF, .15);
+  
+  &:hover {
+    fill: $red;
+  }
+}
+
+// Modernizr:
 .no-touch {
-  .home-woohooo {
-    .home-woohooo-description {
-      transition: color .5s;
-    }
-    
-    &:hover {
-      cursor: default;
-      
-      .home-woohooo-description {
-        color: $red;
-      }
-    }
-  }
-  
-  @include susy-media(min-aspect-ratio $ar-layout) {
-    .home-woohooo-name {
-      font-size: 14vh;
-    }
-
-    .home-woohooo-description {
-      font-size: 9vh;
+  .home-text:hover {
+    span {
+      color: $red;
     }
   }
 }
 
-// Test:
-
-
-// Members: ---------------------------------------------------------------------------
-//#members {
-//  position: relative;
-//  width: 100%;
-//  min-width: $page-min-width;
-//  height: 50%;
-//}
-//
-//.member {
-//  position: relative;
-//  height: 50%;
-//  width: 50%;
-//  float: left;
-//  border: solid 2px #000;
-//  overflow: hidden;
-//  
-//  @include susy-media(min-aspect-ratio $ar-layout) {
-//    height: 100%;
-//    width: 25%;
-//  }
-//}
-//  
-//.member-img {
-//  height: 100%;
-//  width: 100%;
-//  
-//  &:before {
-//    content: "";
-//    display: block;
-//    height: 100%;
-//    width: 100%;
-//    background: #000;
-//    opacity: .5;
-//  }
-//}
-//  
-//.member-text {
-//  position: relative;
-//  display: block;
-//  top: -50%;
-//  left: 5%;
-//  color: #FFF;
-//  text-shadow: 2px 2px 5px transparentize(#000, .5);
-//}
-//
-//.member-name {
-//  font-size: 1.2em;
-//  
-//  @include susy-media($s) {
-//    font-size: 1.4em;
-//  }
-//  
-//  @include susy-media($m) {
-//    font-size: 2em;
-//  }
-//  
-//  @include susy-media($l) {
-//    font-size: 2.8em;
-//  }
-//  
-//  @include susy-media($xl) {
-//    font-size: 4em;
-//  }
-//}
-//
-//.member-description {
-//  font-size: .9em;
-//  font-weight: 100;
-//  
-//  @include susy-media($s) {
-//    font-size: 1.2em;
-//  }
-//  
-//  @include susy-media($m) {
-//    font-size: 1.5em;
-//  }
-//  
-//  @include susy-media($l) {
-//    font-size: 2em;
-//  }
-//  
-//  @include susy-media($xl) {
-//    font-size: 2.5em;
-//  }
-//}
-//
-//.member-nina {
-//  > .member-img {
-//    background: {
-//      image: url("../images/nina.jpg");
-//      size: cover;
-//      position: center 10%;
-//    } 
-//  }
-//}
-//
-//.member-veronika {
-//  > .member-img {
-//    background: {
-//      image: url("../images/veronika.jpg");
-//      size: cover;
-//      position: center 10%;
-//    } 
-//  }
-//}
-//
-//.member-anita {
-//  > .member-img {
-//    background: {
-//      image: url("../images/anita.jpg");
-//      size: cover;
-//      position: center 20%;
-//    } 
-//  }
-//}
-//
-//.member-silvia {
-//  > .member-img {
-//    background: {
-//      image: url("../images/silvia.jpg");
-//      size: cover;
-//      position: center top;
-//    } 
-//  }
-//}
-//
-//// Members modernizr:
-//.touch {
-//  .member-description {
-//    color: $red;
-//  }
-//}
-//
-//.no-touch {
-//  .member {
-//    > .member-text {
-//      transition: opacity .5s;
-//    }
-//    
-//    > .member-img {
-//      transition: transform .5s;
-//
-//      &:before {
-//        transition: opacity .5s;
-//      }
-//    }
-//    
-//    &:hover {
-//      cursor: pointer;
-//      
-//      > .member-img {
-//        transform: scale(1.1);
-//        transition: opacity .5s, transform 5s linear;
-//        
-//        &:before {
-//          opacity: 0;
-//        }
-//      }
-//
-//      > .member-text {
-//        opacity: 0;
-//      }
-//    }
-//  }
-//}
+.no-svg {
+  .home-link {
+    background: {
+      image: url('../images/icons/arrow.png');
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+  }
+}

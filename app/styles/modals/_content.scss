@@ -19,11 +19,7 @@
   z-index: -1;
   
   &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
+    @include pseudo-full();
     background: transparentize(#000, .3);
   }
 }
@@ -33,11 +29,7 @@
   position: relative;
   min-height: 100%;
   border: solid $red;
-  border-width: 0 $border-mini 0 $border-mini;
-  
-  @include susy-media($s) {
-    border-width: 0 $border 0 $border;
-  }
+  border-width: 0 $border 0 $border;
   
   @include susy-media($l) {
     border-width: 0 $border-dt 0 $border-dt;
@@ -46,68 +38,15 @@
   
 .section-heading {
   margin: 0;
-  font-size: $heading;
-  font-weight: bold;
+  font: {
+    size: $heading;
+    weight: bold;
+  }
+  text-align: center;
   color: #FFF;
-  padding-left: 50 - $border-mini*2;
 }
 
-.wrap {
-  @include container;
-  @include span(4);
+.section-wrap {
+  @extend .wrap;
   height: 100%;
-  
-  @include susy-breakpoint($m, 8) {
-//    @include show-grid();
-    @include span(4);
-  }
-}
-
-.section-cover,
-.section-about {
-  position: relative;
-  padding: $space;
-}
-  
-.section-cover {
-  height: 50 - $heading;
-}
-
-.section-image {
-  @include span(4);
-  display: block;
-  position: relative;
-  height: 100%;
-  overflow: hidden;
-  margin-bottom: $space;
-  border: solid $img-border #000;
-  
-  @include susy-media(min-aspect-ratio $ar-layout) {
-    @include span(2);
-    
-    &:last-child {
-      @include last;
-    }
-  }
-}
-  
-// Nina:
-#nina {
-  .img-1 {
-    background: {
-      image: url("../images/content/nina-cover.jpg");
-      size: cover;
-      position: center 25%;
-      repeat: no-repeat;
-    }
-  }
-  
-  .img-2 {
-    background: {
-      image: url("../images/content/nina-cover-2.jpg");
-      size: cover;
-      position: center 20%;
-      repeat: no-repeat;
-    }
-  }
 }
