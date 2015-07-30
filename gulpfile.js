@@ -75,6 +75,10 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
+gulp.task('clear', function (done) {
+  return $.cache.clearAll(done);
+});
+
 gulp.task('serve', ['styles', 'fonts'], function () {
   browserSync({
     notify: false,
