@@ -18,12 +18,6 @@ $(function() {
       nav = $('#nav'),
       content = $('#content'),
       
-      woohooo = $('#woohooo'),
-      nina = $('#nina'),
-      veronika = $('#veronika'),
-      anita = $('#anita'),
-      silvia = $('#silvia'),
-      
       header = $('.home-woohooo'),
       sections = $('.main-section');
   
