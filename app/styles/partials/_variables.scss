@@ -2,8 +2,8 @@
 $susy: (
   container: 100%,
   columns: 4,
-  gutters: .125,
-//  debug: ( image: show ),
+  gutters: 0,
+  debug: ( image: show ),
   global-box-setting: border-box
 );
 
@@ -16,8 +16,8 @@ $dark: #2D2D2D;
 // Sizes:
 $s: 480px;
 $m: 720px;
-$l: 900px;
-$xl: 1280px;
+$l: 1080px;
+$xl: 1440px;
 
 $page-min-width: 320px;
 
@@ -39,6 +39,8 @@ $img-border: 2px;
   
 $border: 5px;
 $border-dt: 110px;
+
+$crew-divider: 75px;
 
 
 // @media:

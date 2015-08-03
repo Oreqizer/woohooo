@@ -1,0 +1,52 @@
+#content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.content-bg {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  height: 200vh;
+  width: 100%;
+  background: {
+    image: url("../images/car-cover-bg.jpg");
+    size: cover;
+    position: center;
+  }
+  filter: grayscale(100%);
+  z-index: -1;
+  
+  &:before {
+    @include pseudo-full();
+    background: transparentize(#000, .3);
+  }
+}
+
+// Main: ------------------------------------------------------------------------------
+.main-section {
+  position: relative;
+  min-height: 100%;
+  border: solid $red;
+  border-width: 0 $border 0 $border;
+  
+  @include susy-media($l) {
+    border-width: 0 $border-dt 0 $border-dt;
+  }
+}
+  
+.section-heading {
+  margin: 0;
+  font: {
+    size: $heading;
+    weight: bold;
+  }
+  text-align: center;
+  color: #FFF;
+}
+
+.section-wrap {
+  @extend .wrap;
+  height: 100%;
+}

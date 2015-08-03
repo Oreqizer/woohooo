@@ -71,10 +71,6 @@
 .home-arrow {
   transition: fill .5s;
   fill: transparentize(#FFF, .15);
-  
-  &:hover {
-    fill: $red;
-  }
 }
 
 // Modernizr:
@@ -83,6 +79,10 @@
     span {
       color: $red;
     }
+  }
+  
+  .home-arrow:hover {
+    fill: $red;
   }
 }
 

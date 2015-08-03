@@ -165,5 +165,22 @@ $(function() {
   }
   
   // CLICK: ---------------------------------------------------------------------------
+  var members = $('.member');
+  
+  $.each(members, function() {
+    $(this).on('click', function(evt) {
+      
+      var clicked = this;
+      $.each(members, function() {
+        var self = $(this);
+        if (clicked === this) {
+          self.toggleClass('active');
+        } else {
+          self.removeClass('active');
+        }
+      })
+      
+    });
+  });
   
 });
