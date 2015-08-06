@@ -31,7 +31,7 @@ $(function() {
   
   // INIT: ----------------------------------------------------------------------------
   windowDimensions();
-  checkNav();
+  //checkNav();
     
   if (html.hasClass('touch')) {
     touch = true;
@@ -45,7 +45,7 @@ $(function() {
     nav.toggleClass('open');
   });
   
-  if (touch) {
+  /*if (touch) {
     
     nav.swipe({
       swipeLeft: function() {
@@ -63,11 +63,12 @@ $(function() {
       }
     });
     
-  }
+  }*/
   
   $('.nav-anchor > a').each(function() {
-    $(this).on('click', function() {
+    $(this).on('click', function(evt) {
       
+      evt.preventDefault();
       var href = $.attr(this, 'href');
       TweenMax.to(root, 0.75, {
           scrollTop: $(href).offset().top,
@@ -81,7 +82,7 @@ $(function() {
   });
   
   // Helper functions:
-  function checkNav() {
+  /*function checkNav() {
     
     if (win.scrollTop() >= height) {
       nav.fadeIn();
@@ -90,7 +91,7 @@ $(function() {
       nav.fadeOut();
     }
     
-  }
+  }*/
   
   function clearNav() {
     
@@ -117,7 +118,7 @@ $(function() {
   win.on('resize', function() {
     
     windowDimensions();
-    checkNav();
+    //checkNav();
     
     if (width < 480 && !touch) {
       nav.removeClass('open');
@@ -141,34 +142,15 @@ $(function() {
       }
     });
     tickNav(id);
-    checkNav();
+    //checkNav();
     
   });
-  
-  // desktop:
-  if (!touch) {
-    var docHeight = doc.height() - height;
-    
-    win.on('scroll', function() {
-      var wScroll = win.scrollTop();
-      
-      // Parallax:
-      bg.css({
-        'transform': 'translate3d(0, ' + (wScroll/docHeight)*50 + '%, 0)'
-      });
-    });
-    
-  } else {
-    bg.css({
-      'transform': 'translate3d(0, ' + 25 + '%, 0)'
-    });
-  }
   
   // CLICK: ---------------------------------------------------------------------------
   var members = $('.member');
   
   $.each(members, function() {
-    $(this).on('click', function(evt) {
+    $(this).on('click', function() {
       
       var clicked = this;
       $.each(members, function() {

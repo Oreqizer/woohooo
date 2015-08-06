@@ -1,7 +1,7 @@
 #content {
   position: relative;
-  height: 100vh;
   width: 100%;
+  margin-bottom: $footer-height;
 }
 
 // Main: ------------------------------------------------------------------------------
@@ -15,8 +15,8 @@
 .no-touch {
   @include susy-media($l) {
     .main-section {
-      border: solid #000;
-      border-width: 0 $border-dt 0 0;
+//      border: solid #000;
+//      border-width: 0 $border-dt 0 0;
     }
   }
 }

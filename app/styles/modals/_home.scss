@@ -75,14 +75,13 @@
 
 // Modernizr:
 .no-touch {
-  .home-text:hover {
-    span {
-      color: $red;
-    }
+  @keyframes arrow {
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
   }
   
   .home-arrow:hover {
-    fill: $red;
+    animation: circle 1s infinite;
   }
 }
 

@@ -1,0 +1,52 @@
+#footer {
+  position: fixed;
+  bottom: 0;
+  height: $footer-height;
+  width: 100%;
+  min-width: $page-min-width;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  color: white;
+  background: #000;
+  z-index: -1;
+}
+
+.f-top,
+.f-bot {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.f-top {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+  
+  > p {
+    max-width: 640px;
+    text-align: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: $red;
+  }
+  
+  @include susy-media ($m) {
+    font-size: 2em;
+  }
+  
+  @include susy-media ($l) {
+    font-size: 2.5em;
+  }
+}
+
+.f-bot {
+  font-size: 1.2em;
+  height: 40px;
+  line-height: 40px;
+}

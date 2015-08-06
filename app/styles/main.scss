@@ -51,3 +51,10 @@ p, ul, ol, li {
   color: #000;
   padding: 0.2em 0;
 }
+
+// Modernizr:
+.no-js {
+  #content {
+    display: none;
+  }
+}

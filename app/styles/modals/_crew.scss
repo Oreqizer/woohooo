@@ -49,19 +49,35 @@
 
 // Backgrounds: -----------------------------------------------------------------------
 .nina .content-img {
-  background-image: url("../images/nina.jpg");
+  background-image: url("../images/crew/nina.jpg");
 }
 
 .veronika .content-img {
-  background-image: url("../images/veronika.jpg");
+  background-image: url("../images/crew/veronika.jpg");
 }
 
 .anita .content-img {
-  background-image: url("../images/anita.jpg");
+  background-image: url("../images/crew/anita.jpg");
 }
 
 .silvia .content-img {
-  background-image: url("../images/silvia.jpg");
+  background-image: url("../images/crew/silvia.jpg");
+}
+
+.content-icon {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  left: 0;
+  margin: 0 auto 0 auto;
+  height: 80px;
+  width: 80px;
+  background: {
+    image: url("../images/icons/circle.svg");
+    size: contain;
+    position: center;
+    repeat: no-repeat;
+  }
 }
 
 // Innerds: ---------------------------------------------------------------------------
@@ -219,7 +235,16 @@
 
 // Modernizr:
 .no-touch {
+  @keyframes circle {
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
   .member:hover {
     cursor: pointer;
+    
+    .content-icon {
+      animation: circle 1s infinite;
+    }
   }
 }
