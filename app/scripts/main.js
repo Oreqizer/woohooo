@@ -178,7 +178,7 @@ $(function() {
         } else {
           self.removeClass('active');
         }
-      })
+      });
       
     });
   });
