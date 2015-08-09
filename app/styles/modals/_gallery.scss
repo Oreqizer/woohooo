@@ -1,3 +1,110 @@
-#gallery {
+.gallery {
+  height: 100vh;
+  background: #000;
+}
+
+.gallery-wrap {
+  @extend .wrap;
+  position: relative;
+}
+
+.gallery-bit {
+  position: relative;
+  @include span(2);
+  height: 25%;
+  border: solid 1px #000;
+  
+  @include susy-media(min-aspect-ratio $ar-layout) {
+    @include span(1);
+    height: 50%;
+  }
+  
+  background: {
+    size: cover;
+    position: center;
+  }
+  
+  &:after {
+    @include pseudo-full();
+    background: transparentize(#000, .75);
+  }
+}
+
+@for $i from 1 through 8 {
+  .gallery-img:nth-child(#{$i}) {
+    background-image: url('../images/gallery/#{$i}.jpg');
+  }
+  
+  .gallery-img-2:nth-child(#{$i}) {
+    background-image: url('../images/gallery/#{$i + 8}.jpg');
+  }
+}
+
+// Modernizr:
+.no-touch {
+  .gallery-bit {
+    border: none;
+    
+    &:after {
+      transition: opacity .5s;
+      background: transparentize(#000, .25);
+    }
+    
+    &:hover {
+      cursor: pointer;
+    
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+// Overlay: ---------------------------------------------------------------------------
+.gallery-overlay {
   display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 2.5%;
+  z-index: 101;
+  background: transparentize(#000, .3);
+  transform: translate3d(0, 0, 0);
+}
+
+.o-image {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: {
+    size: contain;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+  
+.o-close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  transition: transform .25s;
+  background: {
+    image: url('../images/icons/cross.svg');
+    size: contain;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+// Modernizr:
+.no-touch {
+  .o-close:hover {
+    cursor: pointer;
+    transform: scale(.8);
+  }
 }

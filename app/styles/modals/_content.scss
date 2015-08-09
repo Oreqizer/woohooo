@@ -1,22 +1,16 @@
-#content {
-  position: relative;
-  width: 100%;
-  margin-bottom: $footer-height;
-}
-
 // Main: ------------------------------------------------------------------------------
 .main-section {
   @extend .wrap;
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 // Modernizr:
 .no-touch {
   @include susy-media($l) {
     .main-section {
-//      border: solid #000;
-//      border-width: 0 $border-dt 0 0;
+      border: solid #000;
+      border-width: 0 $border-dt 0 0;
     }
   }
 }

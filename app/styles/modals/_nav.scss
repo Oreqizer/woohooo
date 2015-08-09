@@ -84,6 +84,7 @@
   text-align: right;
   text-shadow: 2px 2px 5px transparentize(#000, .5);
   font-size: 2em;
+  user-select: none;
   transition: opacity .5s;
 }
 
@@ -103,7 +104,7 @@
 
 .nav-woohooo .nav-img {
   background: {
-//    image: url("../images/woohooo.jpg");
+    image: url("../images/woohooo/woohooo.jpg");
     size: cover;
     position: center;
   }
@@ -111,7 +112,7 @@
 
 .nav-events .nav-img {
   background: {
-//    image: url("../images/anita.jpg");
+//    image: url("../images/events.jpg");
     size: cover;
     position: center;
   } 
@@ -119,7 +120,7 @@
 
 .nav-gallery .nav-img {
   background: {
-//    image: url("../images/silvia.jpg");
+    image: url("../images/gallery.jpg");
     size: cover;
     position: center;
   } 
@@ -231,12 +232,18 @@
         background: transparentize(#FFF, .6);
         opacity: 1;
       }
+    
+      &.nav-anchor > a {
+        width: $nav-width + $nav-border-dt;
+        left: -$nav-border-dt;
+      }
       
       .nav-text {
         position: relative;
         display: block;
-        padding: 0 10px 0;
-        left: -100%;
+        padding: 0 8px 0;
+        width: $nav-border-dt;
+        left: -$nav-border-dt;
         font-size: 1em;
       }
     }

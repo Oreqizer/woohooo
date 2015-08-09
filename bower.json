@@ -7,7 +7,9 @@
     "modernizr": "~2.8.1",
     "normalize.css": "~3.0.3",
     "susy": "~2.2.5",
-    "jquery-touchswipe": "~1.6.9"
+    "jquery-touchswipe": "~1.6.9",
+    "fullpage.js": "~2.6.7",
+    "viewport-units-buggyfill": "~0.5.4"
   },
   "resolutions": {
     "jquery": "~2.1.4"

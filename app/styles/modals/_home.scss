@@ -1,15 +1,15 @@
 // Main: ------------------------------------------------------------------------------
-#home {
+.home {
   position: relative;
   height: 100vh;
   width: 100%;
-  z-index: 101;
   min-width: $page-min-width;
   background: {
     image: url('../images/car-cover.jpg');
     size: cover;
     position: center;
   }
+  transform: translate3d(0,0,0); // FPS fix
   
   &:before {
     @include pseudo-full();
@@ -80,8 +80,13 @@
     100% { transform: translateY(0px); }
   }
   
-  .home-arrow:hover {
+  .home-arrow {
     animation: circle 1s infinite;
+    animation-play-state: paused;
+    
+    &:hover {
+      animation-play-state: running;
+    }
   }
 }
 

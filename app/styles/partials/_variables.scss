@@ -3,7 +3,7 @@ $susy: (
   container: 100%,
   columns: 4,
   gutters: 0,
-  debug: ( image: show ),
+//  debug: ( image: show ),
   global-box-setting: border-box
 );
 
@@ -18,6 +18,10 @@ $s: 480px;
 $m: 720px;
 $l: 1080px;
 $xl: 1440px;
+
+$m-v: 640px;
+$l-v: 720px;
+$xl-v: 900px;
 
 $page-min-width: 320px;
 

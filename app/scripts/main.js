@@ -14,12 +14,18 @@ $(function() {
       body = $('body'),
       root = $('html, body'),
       
-      home = $('#home'),
       nav = $('#nav'),
       content = $('#content'),
+      fullpage = $('#fullpage'),
+      sections = $('.main-section'),
+      parallaxBg = $('.woohooo-img'),
       
-      header = $('.home-woohooo'),
-      sections = $('.main-section');
+      crew = $('.crew'),
+      gallery = $('.gallery'),
+      woohooo = $('.woohooo'),
+      events = $('.events'),
+      
+      locations = {};
   
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
@@ -29,23 +35,54 @@ $(function() {
     
   }
   
+  function sectionsTop() {
+    
+    locations = {
+      crew: crew.offset().top,
+      woohooo: woohooo.offset().top,
+      gallery: gallery.offset().top,
+      events: events.offset().top
+    };
+    
+  }
+  
   // INIT: ----------------------------------------------------------------------------
+  window.viewportUnitsBuggyfill.init();
+  
+  fullpage.fullpage({
+    anchors: ['home', 'crew', 'woohooo', 'events', 'gallery'],
+    menu: '.nav-list',
+    responsiveWidth: 1080,
+    responsiveHeight: 640,
+    onLeave: function(i, next, dir) {
+      
+      if (i === 1 && dir === 'down') {
+        nav.fadeIn();
+      } else if (i === 2 && dir === 'up') {
+        nav.fadeOut();
+      }
+      
+    }
+  });
+  
+  var respFullpage = !fullpage.hasClass('fp-responsive');
+  
   windowDimensions();
-  //checkNav();
+  sectionsTop();
+  checkNav(win.scrollTop());
     
   if (html.hasClass('touch')) {
     touch = true;
   }
   
   // NAV: -----------------------------------------------------------------------------
-  var navButton = $('.nav-button'),
-      navItems = $('.nav-item');
+  var navButton = $('.nav-button');
   
   navButton.on('click', function() {
     nav.toggleClass('open');
   });
   
-  /*if (touch) {
+  if (touch) {
     
     nav.swipe({
       swipeLeft: function() {
@@ -63,54 +100,17 @@ $(function() {
       }
     });
     
-  }*/
-  
-  $('.nav-anchor > a').each(function() {
-    $(this).on('click', function(evt) {
-      
-      evt.preventDefault();
-      var href = $.attr(this, 'href');
-      TweenMax.to(root, 0.75, {
-          scrollTop: $(href).offset().top,
-          onComplete: function() {
-            window.location.hash = href;
-          }
-      });
-      return false;
-      
-    });
-  });
+  }
   
   // Helper functions:
-  /*function checkNav() {
+  function checkNav(wScroll) {
     
-    if (win.scrollTop() >= height) {
+    if (wScroll >= locations.crew) {
       nav.fadeIn();
     } else {
       nav.removeClass('open');
       nav.fadeOut();
     }
-    
-  }*/
-  
-  function clearNav() {
-    
-    navItems.each(function() {
-      $(this).removeClass('active');
-    });
-    
-  }
-  
-  function tickNav(id) {
-    
-    if (id !== active) {
-      clearNav();
-      
-      if (id) {
-        $('.nav-' + id).addClass('active');
-      }
-    }
-    active = id;
     
   }
   
@@ -118,7 +118,8 @@ $(function() {
   win.on('resize', function() {
     
     windowDimensions();
-    //checkNav();
+    sectionsTop();
+    checkNav();
     
     if (width < 480 && !touch) {
       nav.removeClass('open');
@@ -127,27 +128,49 @@ $(function() {
   });
   
   // SCROLL: --------------------------------------------------------------------------
-  var bg = $('.content-bg');
+
+  // Parallax:
+  function parallax(wScroll) {
+
+    var parScroll = wScroll + height;
+
+    if (parScroll >= locations.woohooo) {
+      parallaxBg.css({
+        transform: 'translate3d(0, ' + (parScroll - locations.woohooo)/height*25 + '%, 0)'
+      });
+    }
+
+  }
   
+  function checkBg(wScroll) {
+    
+    if (wScroll >= locations.events) {
+      parallaxBg.hide();
+    } else {
+      parallaxBg.show();
+    }
+    
+  }
+  
+  // Event handler:
   win.on('scroll', function() {
     
     var wScroll = win.scrollTop();
     
-    // Nav:
-    var id = null;
-    sections.each(function() {
-      var self = $(this);
-      if (self.offset().top - wScroll <= height/4) {
-        id = self.attr('id');
-      }
-    });
-    tickNav(id);
-    //checkNav();
+    checkNav(wScroll);
+//    if (!touch) {
+//      parallax(wScroll);
+//    }
+//    checkBg(wScroll);
     
   });
   
   // CLICK: ---------------------------------------------------------------------------
-  var members = $('.member');
+  var members = $('.member'),
+      galleryBits = $('.gallery-bit'),
+      overlay = $('.gallery-overlay'),
+      oButton = $('.o-close'),
+      oImage  = $('.o-image');
   
   $.each(members, function() {
     $(this).on('click', function() {
@@ -163,6 +186,27 @@ $(function() {
       });
       
     });
+  });
+  
+  $.each(galleryBits, function() {
+    $(this).on('click', function() {
+      
+      var self = $(this);
+      oImage.css({
+        backgroundImage: self.css('background-image')
+      });
+      overlay.fadeIn();
+      $.fn.fullpage.setAllowScrolling(false);
+      
+    });
+  });
+  
+  oButton.on('click', function() {
+    
+    overlay.fadeOut(250, function() {
+      $.fn.fullpage.setAllowScrolling(true);
+    });
+    
   });
   
 });

@@ -1,8 +1,8 @@
 <!doctype html>
-<html class="no-js" lang="sk">
+<html class="no-js" lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="Woohooo's homepage.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Woohooo</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -10,6 +10,7 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -36,28 +37,28 @@
       
       <ul class="nav-list">
         
-        <li class="nav-item nav-anchor nav-crew">
+        <li class="nav-item nav-anchor nav-crew" data-menuanchor="crew">
           <a href="#crew"></a>
           <div class="nav-img"></div>
           <span class="nav-text">CREW</span>
           <span class="nav-text nav-subtext">meet us</span>
         </li>
        
-        <li class="nav-item nav-anchor nav-woohooo">
+        <li class="nav-item nav-anchor nav-woohooo" data-menuanchor="woohooo">
           <a href="#woohooo"></a>
           <div class="nav-img"></div>
           <span class="nav-text">WOOHOOO</span>
           <span class="nav-text nav-subtext">about</span>
         </li>
         
-        <li class="nav-item nav-anchor nav-events">
+        <li class="nav-item nav-anchor nav-events" data-menuanchor="events">
           <a href="#events"></a>
           <div class="nav-img"></div>
           <span class="nav-text">EVENTS</span>
           <span class="nav-text nav-subtext">what we do</span>
         </li>
         
-        <li class="nav-item nav-anchor nav-gallery">
+        <li class="nav-item nav-anchor nav-gallery" data-menuanchor="gallery">
           <a href="#gallery"></a>
           <div class="nav-img"></div>
           <span class="nav-text">GALLERY</span>
@@ -67,39 +68,38 @@
       </ul>
     </nav>
     
-    <header id="home">
-      
-      <div class="home-image"></div>
-      <div class="home-heading">
-        <div class="home-text">
-          <strong>WOOHOOO</strong>
-          <span>discover & admire</span>
+    <main id="fullpage">
+     
+      <header class="section home">
+        
+        <div class="home-heading">
+          <div class="home-text">
+            <strong>WOOHOOO</strong>
+            <span>discover & admire</span>
+          </div>
         </div>
-      </div>
+        
+        <div class="home-link nav-anchor">
+          <a href="#crew">
+            <svg  class="home-arrow" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             width="50px" height="50px" viewBox="50 50 116 46">
+            <path d="M147.841,54.179l-4.073-4.073c-0.543-0.544-1.168-0.815-1.875-0.815c-0.705,0-1.33,0.271-1.873,0.815L108,82.125
+              L75.981,50.107c-0.543-0.544-1.168-0.815-1.874-0.815s-1.331,0.271-1.874,0.815L68.16,54.18c-0.544,0.543-0.815,1.168-0.815,1.874
+              s0.272,1.331,0.815,1.874l37.966,37.967c0.543,0.543,1.168,0.814,1.874,0.814s1.33-0.271,1.873-0.814l37.968-37.967
+              c0.543-0.543,0.813-1.168,0.813-1.874C148.654,55.348,148.384,54.723,147.841,54.179z"/>
+            </svg>
+          </a>
+        </div>
+        
+      </header>
+        
+      <section class="main-section section crew">
       
-      <div class="home-link nav-anchor">
-        <a href="#crew">
-          <svg  class="home-arrow" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-           width="50px" height="50px" viewBox="50 50 116 46">
-        <path d="M147.841,54.179l-4.073-4.073c-0.543-0.544-1.168-0.815-1.875-0.815c-0.705,0-1.33,0.271-1.873,0.815L108,82.125
-          L75.981,50.107c-0.543-0.544-1.168-0.815-1.874-0.815s-1.331,0.271-1.874,0.815L68.16,54.18c-0.544,0.543-0.815,1.168-0.815,1.874
-          s0.272,1.331,0.815,1.874l37.966,37.967c0.543,0.543,1.168,0.814,1.874,0.814s1.33-0.271,1.873-0.814l37.968-37.967
-          c0.543-0.543,0.813-1.168,0.813-1.874C148.654,55.348,148.384,54.723,147.841,54.179z"/>
-        </svg>
-        </a>
-      </div>
-      
-    </header>
-    
-    <main id="content">
-      
-      <section class="main-section" id="crew">
-       
         <div class="member">
           <div class="inner-content nina">
             <div class="content-img"></div>
             <div class="content-overlay">
-             
+      
               <div class="title">
                 <h1>NINA</h1>
                 <span class="divider">the</span>
@@ -129,25 +129,25 @@
                   </tr>
                 </table>
                 <p><strong>Motto:</strong>
-  See that the whole existence is celebrating.
-  The trees are not serious, the birds are not serious.
-  The rivers and the oceans are wild,
-  and everywhere there is fun,
-  everywhere there is joy and delight.
-  Watch existence,
-  listen to the existence and become part of it.” <strong>- OSHO</strong></p>
+      See that the whole existence is celebrating.
+      The trees are not serious, the birds are not serious.
+      The rivers and the oceans are wild,
+      and everywhere there is fun,
+      everywhere there is joy and delight.
+      Watch existence,
+      listen to the existence and become part of it.” <strong>- OSHO</strong></p>
               </div>
-              
+      
             </div>
           </div>
           <div class="content-icon"></div>
         </div>
-        
+      
         <div class="member">
           <div class="inner-content veronika">
             <div class="content-img"></div>
             <div class="content-overlay">
-             
+      
               <div class="title">
                 <h1>VERONIKA</h1>
                 <span class="divider">the</span>
@@ -178,17 +178,17 @@
                 </table>
                 <p>I am a student, who successfully finished high school this year. Fashion is one of my passions, therefore I want to create Woohooo fashion, which would describe life style of young girls, who want to show, that every day can be lived in joy, not only stereotypically.</p>
               </div>
-              
+      
             </div>
           </div>
           <div class="content-icon"></div>
         </div>
-        
+      
         <div class="member">
           <div class="inner-content anita">
             <div class="content-img"></div>
             <div class="content-overlay">
-             
+      
               <div class="title">
                 <h1>ANITA</h1>
                 <span class="divider">the</span>
@@ -220,17 +220,17 @@
                 <p>I love challenges, adventure and new discoveries. I love contact with people  and getting to know new, unknown territories both in terms of personality, activities and places.</p>
                 <p>I would like to work with people who want to live in harmony with one another, discover their potential and their capabilities and also with children. I’m constantly looking for a life that will be more conscious, joyful and full of unconditional love.</p>
               </div>
-              
+      
             </div>
           </div>
           <div class="content-icon"></div>
         </div>
-        
+      
         <div class="member">
           <div class="inner-content silvia">
             <div class="content-img"></div>
             <div class="content-overlay">
-             
+      
               <div class="title">
                 <h1>SILVIA</h1>
                 <span class="divider">the</span>
@@ -262,36 +262,78 @@
                 <p>I am a joyful woman, loving traveling, searching for adventure and new experiences. I dont know what is a boredom, trying to make the best of everything, dancing like nobody is watching!</p>
                 <p>In Woohooo, I'm the presenter, I'm in charge of videos and I'm bringing my neverending energy, artistic skills, craziness and fun!</p>
               </div>
-              
+      
             </div>
           </div>
           <div class="content-icon"></div>
         </div>
-        
+      
       </section>
-     
-      <section class="main-section" id="woohooo">
+      
+      <section class="main-section section woohooo">
+        <div class="woohooo-img"></div>
+        <div class="woohooo-content">
+          <div class="woohooo-heading">
+            <h1 class="h-wrap">
+              <span class="text start">W</span><span class="text mid">HO</span>
+              <span class="text end"> ARE WE?</span>
+            </h1>
+          </div>
+          <div class="woohooo-paragraphs">
+            <div class="col-1"><p>We are a team of four girls, who create a perfect team. We aren't afraid of living life to the fullest. We live for the great experiences with the people we love. We believe that the beauty in life is in passion and authenticity. We live in the present, living our dreams. Each one of us has some unique talent and individuality, and together with our Woohooo driver we want to show everyone a new way of life, to go as an example to all the young fellows out there. We seek unique experiences which will fulfill and enrich us.</p></div>
+            <div class="col-2"><p>We rarely found ourselves in a bar or a cafe. You will find us rafting the lakes, yachting, racing on go-karts, race tracks, having a picknick somewhere in the forest - always on our journey seeking new adventures. We fight against virtual reality, spending countless hours with phones or tablets in their hands, gossiping and trashtalking, fake superiority or women who can't even cook. We want to show what really women are made of, because most of them don't even know their true feminine power!</p></div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="main-section section events">
+      
+      </section>
+      
+      <section class="main-section section gallery">
+       
+        <div class="slide gallery-wrap">
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+          <div class="gallery-bit gallery-img"></div>
+        </div>
+        
+        <div class="slide gallery-wrap">
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+          <div class="gallery-bit gallery-img-2"></div>
+        </div>
         
       </section>
       
-      <section class="main-section" id="events">
-        
-      </section>
+<!--
+      <footer id="footer">
+        <div class="f-top">
+          <p>Full site coming soon. Meanwhile, check out our <a href="https://www.facebook.com/woohooofamily?fref=ts">Facebook</a> page!</p>
+        </div>
+        <div class="f-bot">
+          <p>Developed by <strong>Audinn</strong> s.r.o.</p>
+        </div>
+      </footer>
+-->
       
-      <section class="main-section" id="gallery">
-        
-      </section>
       
     </main>
-    
-    <footer id="footer">
-      <div class="f-top">
-        <p>Full site coming soon. Meanwhile, check out our <a href="https://www.facebook.com/woohooofamily?fref=ts">Facebook</a> page!</p>
-      </div>
-      <div class="f-bot">
-        <p>Developed by <strong>Audinn</strong> s.r.o.</p>
-      </div>
-    </footer>
+        
+    <div class="gallery-overlay">
+      <div class="o-image"></div>
+      <span class="o-close"></span>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -307,7 +349,13 @@
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/gsap/src/uncompressed/TweenMax.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
     <script src="/bower_components/jquery-touchswipe/jquery.touchSwipe.js"></script>
+    <script src="/bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <script src="/bower_components/fullpage.js/vendors/jquery.easings.min.js"></script>
+    <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
+    <script src="/bower_components/viewport-units-buggyfill/viewport-units-buggyfill.js"></script>
+    <script src="/bower_components/viewport-units-buggyfill/viewport-units-buggyfill.hacks.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
