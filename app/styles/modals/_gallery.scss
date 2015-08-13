@@ -68,10 +68,14 @@
   width: 100%;
   top: 0;
   left: 0;
-  padding: 2.5%;
+  padding: 5px;
   z-index: 101;
-  background: transparentize(#000, .3);
+  background: transparentize(#000, .1);
   transform: translate3d(0, 0, 0);
+  
+  @include susy-media($l) {
+    padding: 50px;
+  }
 }
 
 .o-image {
@@ -100,10 +104,38 @@
     repeat: no-repeat;
   }
 }
+  
+.o-left,
+.o-right {
+  display: block;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  height: 50px;
+  width: 50px;
+  transition: transform .25s;
+  background: {
+    size: contain;
+    position: center;
+    repeat: no-repeat;
+  }
+}
+
+.o-left {
+  left: 0;
+  background-image: url('../images/icons/left.svg');
+}
+
+.o-right {
+  right: 0;
+  background-image: url('../images/icons/right.svg');
+}
 
 // Modernizr:
 .no-touch {
-  .o-close:hover {
+  .o-close:hover,
+  .o-left:hover,
+  .o-right:hover {
     cursor: pointer;
     transform: scale(.8);
   }

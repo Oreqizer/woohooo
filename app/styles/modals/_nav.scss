@@ -28,7 +28,7 @@
   display: block;
   margin: $nav-margin;
   min-height: 80px;
-  height: calc(100%/#{$members} - #{$nav-margin});
+  height: calc(100%/#{$sections} - #{$nav-margin});
   
   &:before {
     @include pseudo-full();
@@ -213,7 +213,7 @@
     
     .nav-item {
       transition: transform .5s;
-      height: calc(100%/#{$members} - #{$nav-margin-dt});
+      height: calc(100%/#{$sections} - #{$nav-margin-dt});
       margin: $nav-margin-dt 0 $nav-margin-dt 0;
       
       &:hover {

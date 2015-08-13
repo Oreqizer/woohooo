@@ -7,7 +7,7 @@ $susy: (
   global-box-setting: border-box
 );
 
-$members: 4;
+$sections: 5;
 
 // Colors:
 $red: #F12222;
@@ -47,8 +47,8 @@ $border-dt: 110px;
 $crew-divider: 75px;
 $crew-divider-dt: 125px;
 
-// footer:
-$footer-height: 320px;
+// highlights:
+$hl-tab: 80px;
 
 // @media:
 $ar-layout: '1/1';

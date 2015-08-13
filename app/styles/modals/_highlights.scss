@@ -1,0 +1,212 @@
+.hl-tab {
+  position: relative;
+  @include span(4);
+  height: 100vh;
+  min-height: $m-v;
+  background: #000;
+  overflow: hidden;
+}
+
+// Queries:
+@include susy-breakpoint($m, 8) {
+  .events {
+    @include span(4);
+  }
+  
+  .articles {
+    @include span(4);
+  }
+  
+  .sponsors {
+    @include span(8);
+    
+    @include susy-media(max-width $l - 1) {     
+      height: 320px;
+      min-height: 320px;
+    }
+  }
+}
+
+@include susy-breakpoint($l, 8) {
+  .hl-big {
+    @include span(3);
+  }
+  
+  .hl-small {
+    @include span(2);
+  }
+}
+
+// Events: ---------------------------------------------------------------------------
+$event-h: 40px;
+$event-d: 100px;
+
+.hl-tab {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+}
+
+.event-heading {
+  display: block;
+  padding-left: 50px;
+  height: 40px;
+  line-height: 40px;
+  color: $dark;
+  font-size: 2em;
+  background: $red;
+}
+
+.event {
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+  transition: flex-grow .5s;
+  background: {
+    position: center;
+    size: cover;
+  }
+  
+  &.active {
+    flex-grow: 3;
+    
+    .event-description {
+      opacity: 1;
+    }
+  }
+}
+
+.event-header,
+.event-description {
+  display: block;
+  position: absolute;
+}
+
+.event-header {
+  height: $event-h;
+  line-height: $event-h;
+  width: 100%;
+  padding-left: 50px;
+  color: #FFF;
+  font: {
+    weight: bold;
+    size: 1.3em;
+  }
+  background: transparentize($dark, .25);
+}
+
+.event-description {
+  height: $event-d;
+  bottom: 0;
+  padding: 5px;
+  font-size: .9em;
+  color: #FFF;
+  text-align: justify;
+  background: transparentize(#000, .5);
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+// BGs:
+.gran-turismo {
+  background-image: url("../images/highlights/events/gran-turismo.jpg");
+}
+
+.diamond-race {
+  background-image: url("../images/highlights/events/diamond-race.jpg");
+}
+
+.auto-masters {
+  background-image: url("../images/highlights/events/auto-masters.jpg");
+}
+
+.tuning-grill {
+  background-image: url("../images/highlights/events/tuning-grill.jpg");
+}
+
+.roadlife {
+  background-image: url("../images/highlights/events/roadlife.jpg");
+}
+
+// Modernizr:
+.no-touch {
+  .event:hover {
+    cursor: pointer;
+  }
+}
+
+// Articles: --------------------------------------------------------------------------
+.article-heading {
+  @extend .event-heading;
+  background: $dark;
+  color: $red;
+}
+
+.article {
+  position: relative;
+  flex-grow: 1;
+  border: solid 1px $dark;
+  transition: flex-grow .5s;
+  overflow: hidden;
+  
+  &.active {
+    flex-grow: 5;
+    
+    .article-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.article-link {
+  height: 100px;
+  border: solid 1px green;
+}
+
+.article-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: {
+    position: left center;
+    size: cover;
+  }
+}
+
+.article-overlay {
+  @extend .event-header;
+  background: transparentize($red, .5);
+  text-align: right;
+  padding: 0 10px 0;
+  font: {
+    weight: normal;
+    size: 1em;
+  }
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+// BGs:
+.ok {
+  background-image: url('../images/highlights/articles/ok.jpg');
+}
+
+.vip {
+  background-image: url('../images/highlights/articles/vip.jpg');
+}
+
+.metro {
+  background-image: url('../images/highlights/articles/metro.jpg');
+}
+
+// Modernizr:
+.no-touch {
+  .article:hover {
+    cursor: pointer;
+  }
+}
+
+// Sponsors: --------------------------------------------------------------------------
+.sponsors-heading {
+  @extend .event-heading;
+}

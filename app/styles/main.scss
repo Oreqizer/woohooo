@@ -6,14 +6,15 @@
 @import "partials/variables";
 @import "partials/mixins";
 @import "partials/fonts";
+@import "partials/fullpage";
 @import "modals/home";
 @import "modals/nav";
 @import "modals/content";
 @import "modals/crew";
 @import "modals/woohooo";
-@import "modals/events";
+@import "modals/highlights";
 @import "modals/gallery";
-@import "modals/footer";
+@import "modals/contact";
 
 @include border-box-sizing;
 
