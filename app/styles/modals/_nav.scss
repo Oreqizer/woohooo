@@ -104,15 +104,15 @@
 
 .nav-woohooo .nav-img {
   background: {
-    image: url("../images/woohooo/woohooo.jpg");
+    image: url("../images/woohooo.jpg");
     size: cover;
     position: center;
   }
 }
 
-.nav-events .nav-img {
+.nav-highlights .nav-img {
   background: {
-//    image: url("../images/events.jpg");
+    image: url("../images/highlights.jpg");
     size: cover;
     position: center;
   } 
@@ -121,6 +121,14 @@
 .nav-gallery .nav-img {
   background: {
     image: url("../images/gallery.jpg");
+    size: cover;
+    position: center;
+  } 
+}
+
+.nav-contact .nav-img {
+  background: {
+    image: url("../images/contact.jpg");
     size: cover;
     position: center;
   } 

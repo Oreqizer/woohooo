@@ -5,6 +5,7 @@
   min-height: $m-v;
   background: #000;
   overflow: hidden;
+  transform: translate3d(0, 0, 0); // FPS fix
 }
 
 // Queries:
@@ -20,7 +21,7 @@
   .sponsors {
     @include span(8);
     
-    @include susy-media(max-width $l - 1) {     
+    @include susy-media(max-width $l - 1) {
       height: 320px;
       min-height: 320px;
     }
@@ -39,7 +40,7 @@
 
 // Events: ---------------------------------------------------------------------------
 $event-h: 40px;
-$event-d: 100px;
+$event-d: 120px;
 
 .hl-tab {
   display: flex;
@@ -105,6 +106,14 @@ $event-d: 100px;
   background: transparentize(#000, .5);
   opacity: 0;
   transition: opacity .5s;
+  
+  @include susy-media($m) {
+    font-size: 1em;
+  }
+  
+  @include susy-media($xl) {
+    font-size: 1.3em;
+  }
 }
 
 // BGs:
@@ -158,17 +167,12 @@ $event-d: 100px;
   }
 }
 
-.article-link {
-  height: 100px;
-  border: solid 1px green;
-}
-
 .article-img {
   position: absolute;
   height: 100%;
   width: 100%;
   background: {
-    position: left center;
+    position: center;
     size: cover;
   }
 }
@@ -178,12 +182,39 @@ $event-d: 100px;
   background: transparentize($red, .5);
   text-align: right;
   padding: 0 10px 0;
-  font: {
-    weight: normal;
-    size: 1em;
-  }
+  font-size: 1em;
   opacity: 0;
   transition: opacity .5s;
+  
+  @include susy-media($m) {
+    font-size: 1em;
+  }
+  
+  @include susy-media($l) {
+    font-size: 1.1em;
+  }
+  
+  @include susy-media($xl) {
+    font-size: 1.3em;
+  }
+}
+
+.article-link {
+  height: 100px;
+  background: $dark;
+  padding: 10px;
+}
+
+.link-text {
+  color: #FFF;
+  line-height: 80px;
+  font-size: 1.4em;
+  
+  > a {
+    color: $red;
+    text-decoration: none;
+    font-weight: bold;
+  }
 }
 
 // BGs:
@@ -204,9 +235,84 @@ $event-d: 100px;
   .article:hover {
     cursor: pointer;
   }
+  
+  .link-text > a:hover {
+    text-decoration: underline;
+  }
 }
 
 // Sponsors: --------------------------------------------------------------------------
+
+
+.sponsors {
+  padding-top: $event-h;
+  
+  @include susy-media($m $l - 1) {
+    flex-direction: row;
+  }
+}
+
 .sponsors-heading {
   @extend .event-heading;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.sponsor-img {
+  position: relative;
+  flex-grow: 1;
+  display: block;
+  margin: 15px;
+  background: {
+    position: center;
+    size: contain;
+    repeat: no-repeat;
+  }
+}
+
+// BGs:
+.audinn {
+  background-image: url('../images/highlights/sponsors/audinn.svg');
+}
+
+.soul {
+  background-image: url('../images/highlights/sponsors/soul.svg');
+}
+
+.diamondrace {
+  background-image: url('../images/highlights/sponsors/diamondrace.svg');
+}
+
+.flava {
+  background-image: url('../images/highlights/sponsors/flava.svg');
+}
+
+.no-svg {
+  .audinn {
+    background-image: url('../images/highlights/sponsors/audinn.png');
+  }
+  
+  .soul {
+    background-image: url('../images/highlights/sponsors/soul.png');
+  }
+  
+  .diamondrace {
+    background-image: url('../images/highlights/sponsors/diamondrace.png');
+  }
+  
+  .flava {
+    background-image: url('../images/highlights/sponsors/flava.png');
+  }
+}
+
+// Modernizr:
+.no-touch {
+  .sponsor-img {
+    transition: transform .25s;
+    
+    &:hover {
+      transform: scale(.9);
+    }
+  }
 }

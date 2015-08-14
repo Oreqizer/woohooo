@@ -25,7 +25,8 @@ $(function() {
       gallery = $('.gallery'),
       contact = $('.contact'),
       
-      locations = {};
+      locations = {},
+      respFullpage = fullpage.hasClass('fp-responsive');
   
   // FUNCTIONS: -----------------------------------------------------------------------
   function windowDimensions() {
@@ -69,8 +70,6 @@ $(function() {
     }
   });
   
-  var respFullpage = !fullpage.hasClass('fp-responsive');
-  
   windowDimensions();
   sectionsTop();
   checkNav(win.scrollTop());
@@ -91,30 +90,10 @@ $(function() {
     nav.removeClass('open');
   });
   
-//  if (touch) {
-//    
-//    nav.swipe({
-//      swipeLeft: function() {
-//        nav.removeClass('open');
-//      },
-//      excludedElements: 'button, input, select, textarea, .noSwipe'
-//    });
-//    
-//    html.swipe({
-//      swipeLeft: function() {
-//        nav.removeClass('open');
-//      },
-//      swipeRight: function() {
-//        nav.addClass('open');
-//      }
-//    });
-//    
-//  }
-  
   // Helper functions:
   function checkNav(wScroll) {
     
-    if (wScroll >= locations.crew) {
+    if (!body.hasClass('fp-viewing-home')) {
       nav.fadeIn();
     } else {
       nav.removeClass('open');
@@ -253,6 +232,15 @@ $(function() {
       });
     }
     
+  });
+    
+  overlay.swipe({
+    swipeLeft: function() {
+      oPrev.trigger('click');
+    },
+    swipeRight: function() {
+      oNext.trigger('click');
+    }
   });
   
 });

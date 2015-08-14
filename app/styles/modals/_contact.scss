@@ -1,0 +1,15 @@
+.contact {
+  background: #000;
+}
+
+.contact-wrap {
+  @extend .wrap;
+  height: 100%;
+}
+
+.contact-heading {
+  margin: 0;
+  padding: 20px;
+  font-size: 3em;
+  color: #FFF;
+}
