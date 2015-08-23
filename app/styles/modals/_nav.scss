@@ -183,11 +183,11 @@
 // Open: ------------------------------------------------------------------------------
 .open {
   .nav-list {
-    transform: translateX($nav-width);
+    transform: translate3d($nav-width, 0, 0);
   }
 
   .nb-1 {
-    transform: translateY($nb-width/4) rotate(45deg);
+    transform: translate3d(0, $nb-width/4, 0) rotate(45deg);
   }
 
   .nb-2 {
@@ -195,7 +195,7 @@
   }
 
   .nb-3 {
-    transform: translateY(-1*($nb-width+3)/4) rotate(-45deg);
+    transform: translate3d(0, -1*($nb-width+3)/4, 0) rotate(-45deg);
   }
 }
 
@@ -225,7 +225,7 @@
       margin: $nav-margin-dt 0 $nav-margin-dt 0;
       
       &:hover {
-        transform: translateX(-$nav-width);
+        transform: translate3d(-$nav-width, 0, 0);
       }
       
       &:before {
