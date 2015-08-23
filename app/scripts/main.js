@@ -125,7 +125,7 @@ $(function() {
     
   });
   
-  // CLICK: ---------------------------------------------------------------------------
+  // INTERACTION: ---------------------------------------------------------------------
   var members = $('.member'),
       events = $('.event'),
       articles = $('.article'),
@@ -137,6 +137,7 @@ $(function() {
       oNext  = $('.o-right'),
       oPrev  = $('.o-left');
   
+  // Members:
   $.each(members, function() {
     $(this).on('click', function() {
       
@@ -153,6 +154,7 @@ $(function() {
     });
   });
   
+  // Highlights:
   $.each(events, function() {
     $(this).on('click', function() {
       
@@ -185,6 +187,7 @@ $(function() {
     });
   });
   
+  // Gallery:
   $.each(galleryBits, function() {
     $(this).on('click', function() {
       
@@ -196,6 +199,7 @@ $(function() {
       openImage = self;
       overlay.fadeIn();
       $.fn.fullpage.setAllowScrolling(false);
+      $.fn.fullpage.setKeyboardScrolling(false);
       
     });
   });
@@ -204,6 +208,7 @@ $(function() {
     
     overlay.fadeOut(250, function() {
       $.fn.fullpage.setAllowScrolling(true);
+      $.fn.fullpage.setKeyboardScrolling(true);
     });
     
     openImage = null;
@@ -236,11 +241,26 @@ $(function() {
     
   overlay.swipe({
     swipeLeft: function() {
-      oPrev.trigger('click');
+      oNext.trigger('click');
     },
     swipeRight: function() {
-      oNext.trigger('click');
+      oPrev.trigger('click');
     }
+  });
+  
+  doc.keydown(function(evt) {
+    switch(evt.which) {
+        case 37: // left
+          oPrev.trigger('click');
+          break;
+
+        case 39: // right
+          oNext.trigger('click');
+          break;
+
+        default: return;
+    }
+    evt.preventDefault();
   });
   
 });

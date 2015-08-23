@@ -62,7 +62,6 @@ $event-d: 120px;
   position: relative;
   flex-grow: 1;
   overflow: hidden;
-  transition: flex-grow .5s;
   background: {
     position: center;
     size: cover;
@@ -155,7 +154,6 @@ $event-d: 120px;
   position: relative;
   flex-grow: 1;
   border: solid 1px $dark;
-  transition: flex-grow .5s;
   overflow: hidden;
   
   &.active {
