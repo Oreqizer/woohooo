@@ -127,10 +127,12 @@
 }
 
 .nav-contact .nav-img {
+  background: #000;
   background: {
-    image: url("../images/contact.jpg");
-    size: cover;
+    image: url("../images/contact.png");
+    size: contain;
     position: center;
+    repeat: no-repeat;
   } 
 }
 

@@ -71,6 +71,7 @@ $event-d: 120px;
     flex-grow: 3;
     
     .event-description {
+      transition: opacity .5s;
       opacity: 1;
     }
   }
@@ -104,7 +105,7 @@ $event-d: 120px;
   text-align: justify;
   background: transparentize(#000, .5);
   opacity: 0;
-  transition: opacity .5s;
+  transition: none;
   
   @include susy-media($m) {
     font-size: 1em;
@@ -125,7 +126,7 @@ $event-d: 120px;
 }
 
 .auto-masters {
-  background-image: url("../images/highlights/events/auto-masters.jpg");
+  background-image: url("../images/highlights/events/auto-master.jpg");
 }
 
 .tuning-grill {
@@ -181,8 +182,8 @@ $event-d: 120px;
   text-align: right;
   padding: 0 10px 0;
   font-size: 1em;
-  opacity: 0;
   transition: opacity .5s;
+  opacity: 0;
   
   @include susy-media($m) {
     font-size: 1em;
@@ -275,15 +276,15 @@ $event-d: 120px;
 }
 
 .soul {
-  background-image: url('../images/highlights/sponsors/soul.svg');
+  background-image: url('../images/highlights/sponsors/soul.png');
 }
 
 .diamondrace {
-  background-image: url('../images/highlights/sponsors/diamondrace.svg');
+  background-image: url('../images/highlights/sponsors/diamondrace.png');
 }
 
 .flava {
-  background-image: url('../images/highlights/sponsors/flava.svg');
+  background-image: url('../images/highlights/sponsors/flava.png');
 }
 
 .no-svg {

@@ -1,15 +1,177 @@
 .contact {
   background: #000;
+  overflow: hidden;
+  height: 100vh;
+  min-height: 640px;
+  
+  @include susy-media($m) {
+    font-size: 1.2em;
+  }
+  
+  @include susy-media($l) {
+    font-size: 1.4em;
+  }
+  
+  @include susy-media($xl) {
+    font-size: 1.6em;
+  }
 }
 
+// Layout: -----------------------------------------------------------------------------------
 .contact-wrap {
-  @extend .wrap;
+  position: relative;
+  height: 50%;
+  width: 100%;
+  
+  @include susy-media($l) {
+    height: 50%;
+  }
+}
+
+.inner-wrap {
+  @include container();
+  position: relative;
+  max-width: 1080px;
   height: 100%;
 }
 
-.contact-heading {
-  margin: 0;
-  padding: 20px;
-  font-size: 3em;
+.contact-bottom {
+  @extend .inner-wrap;
+  height: 25%;
+}
+
+// Details: ----------------------------------------------------------------------------------
+.contact-people {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-person {
+  position: relative;
+  flex-grow: 1;
+  padding: 5px;
+}
+
+.cp-title,
+.cp-contact {
+  position: absolute;
+  right: 10px;
   color: #FFF;
+}
+
+.red {
+  color: $red;
+}
+
+.cp-title {
+  bottom: 50%;
+}
+
+.cp-contact {
+  top: 50%;
+}
+
+.contact-bg {
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  bottom: 0;
+  background: {
+    image: url('../images/contact/bg.jpg');
+    size: cover;
+    position: center 80%;
+  }
+}
+
+.contact-heading {
+  position: relative;
+  display: block;
+  height: 20%;
+  padding-right: 10px;
+  margin: 0;
+  font-size: 3em;
+  text-align: right;
+  color: #FFF;
+  
+  @include susy-media($l) {
+    font-size: 8vh;
+  }
+}
+
+.facebook a {
+  text-decoration: none;
+  color: #43609C;
+  font-weight: bold;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.cb-bot,
+.cb-fb {
+  position: absolute;
+  display: block;
+  color: #FFF;
+  text-align: right;
+  height: 50px;
+  line-height: 50px;
+  bottom: 0;
+  right: 10px;
+}
+
+.cb-fb {
+  font-size: 1.5em;
+  top: 0;
+  margin: auto 0 auto 0;
+  
+  @include susy-media($s) {
+    font-size: 2em;
+  }
+  
+  @include susy-media($m) {
+    font-size: 2.8em;
+  }
+}
+
+.little {
+  font-weight: 100;
+}
+// Footer: -----------------------------------------------------------------------------------
+.footer {
+  position: relative;
+  width: 100%;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  color: #FFF;
+  background: $dark;
+}
+
+.f-logo {
+  flex-grow: 1;
+  margin: 10px 10px 30px 10px;
+  background: {
+    image: url('../images/highlights/sponsors/audinn.svg');
+    position: center;
+    size: contain;
+    repeat: no-repeat;
+  }
+}
+
+.f-text {
+  height: 60px;
+  font-size: 1.6em;
+  text-align: center;
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 }
