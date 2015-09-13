@@ -1,7 +1,7 @@
 node_modules
 bower_components
 test/bower_components
-dest
+dist
 *.zip
 .tmp
 .sass-cache
