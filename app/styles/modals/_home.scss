@@ -1,0 +1,102 @@
+// Main: ------------------------------------------------------------------------------
+.home {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  min-width: $page-min-width;
+  background: {
+    image: url('../images/car-cover.jpg');
+    size: cover;
+    position: center;
+  }
+  transform: translate3d(0,0,0); // FPS fix
+  
+  &:before {
+    @include pseudo-full();
+    background: transparentize(#000, .85);
+  }
+}
+
+// Woohooo: ---------------------------------------------------------------------------
+.home-heading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-text {
+  text-align: center;
+  line-height: 1;
+  font-size: 16vw;
+  color: transparentize(#FFF, .15);
+  cursor: default;
+  
+  @include susy-media($m) {
+    font-size: 13vw;
+  }
+  
+  @include susy-media($xl) {
+    font-size: 10vw;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  span {
+    display: block;
+    transition: color .5s;
+    font: {
+      size: .35em;
+      weight: 100;
+    }
+  }
+}
+
+.home-link {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: -25px;
+}
+
+.home-arrow {
+  transition: fill .5s;
+  fill: transparentize(#FFF, .15);
+}
+
+// Modernizr:
+.no-touch {
+  @keyframes arrow {
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .home-arrow {
+    animation: circle 1s infinite;
+    animation-play-state: paused;
+    
+    &:hover {
+      animation-play-state: running;
+    }
+  }
+}
+
+.no-svg {
+  .home-link {
+    background: {
+      image: url('../images/icons/arrow.png');
+      size: contain;
+      position: center;
+      repeat: no-repeat;
+    }
+  }
+}

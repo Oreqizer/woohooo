@@ -1,0 +1,221 @@
+.woohooo {
+  height: 100vh;
+}
+
+.woohooo-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: {
+    image: url("../images/woohooo/woohooo.jpg");
+    size: cover;
+    position: center;
+  }
+  transform: translate3d(0,0,0); // FPS fix
+  
+  &:after {
+    @include pseudo-full();
+    background: transparentize(#000, .4);
+  }
+}
+
+.woohooo-content {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px 0 50px;
+}
+
+// Text: ------------------------------------------------------------------------------
+.woohooo-heading,
+.woohooo-paragraphs {
+  color: #FFF;
+}
+
+.woohooo-heading {
+  display: flex;
+  padding: 20px 0 20px 0;
+  justify-content: center;
+  align-items: center;
+  
+  > h1 {
+    margin: 0;
+  }
+  
+  .text {
+    display: inline-block;
+    backface-visibility: hidden; // webkit fix
+  }
+}
+
+.woohooo-paragraphs {
+  flex-grow: 1;
+  text-align: justify;
+}
+
+.col-1,
+.col-2 {
+  @include span(4);
+}
+
+.col-2 {
+  padding: 10% 0 10% 0;
+}
+
+// Modernizr:
+
+// Queries: ---------------------------------------------------------------------------
+$m-text-slide: 85px;
+$l-text-slide: 108px;
+$xl-text-slide: 150px;
+
+@include susy-media($s) {
+  .woohooo-heading {
+    font-size: 1.7em;
+    padding: 30px 0 30px 0;
+  }
+  
+  .woohooo-paragraphs {
+    font-size: 1.1em;
+  }
+}
+
+@include susy-media($m) {
+  .col-1,
+  .col-2 {
+    @include span(4 of 8);
+    padding: 0 5% 5% 5%;
+  }
+  
+  .woohooo-heading {
+    font-size: 2em;
+    padding: 40px 0 40px 0;
+  }
+  
+  .woohooo-paragraphs {
+    font-size: 1.3em;
+  }
+  
+  .no-touch {
+    .h-wrap {
+      .text {
+        transition: transform .5s;
+      }
+      
+      &:hover {
+        .mid:before,
+        .mid:after {
+          opacity: 1;
+        }
+        
+        .mid:before {
+          transform: translateX(-$m-text-slide);
+        }
+        
+        .start {
+          transform: translateX(-$m-text-slide);
+        }
+        
+        .end {
+          transform: translateX($m-text-slide);
+        }
+      }
+    }
+    
+    .mid {
+      cursor: default;
+      
+      &:before,
+      &:after {
+        content: "OO";
+        display: inherit;
+        position: absolute;
+        width: $m-text-slide;
+        transition: opacity .5s, transform .5s;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+@include susy-media($l) {
+  .woohooo-heading {
+    font-size: 2.5em;
+    padding: 50px 0 50px 0;
+  }
+  
+  .woohooo-paragraphs {
+    font-size: 1.3em;
+  }
+  
+  .no-touch {
+    .h-wrap:hover {
+      .mid:before {
+        transform: translateX(-$l-text-slide);
+      }
+
+      .start {
+        transform: translateX(-$l-text-slide);
+      }
+
+      .end {
+        transform: translateX($l-text-slide);
+      }
+    }
+
+    .mid:before,
+    .mid:after {
+      width: $l-text-slide;
+    }
+  }
+  
+  @include susy-media(min-height $l-v) {
+    .woohooo-paragraphs {
+      font-size: 1.4em;
+    }
+  }
+}
+
+@include susy-media($xl) {
+  .col-1,
+  .col-2 {
+    @include span(3 of 8);
+  }
+  
+  .col-1 {
+    margin-left: span(1 of 8);
+  }
+  
+  .woohooo-heading {
+    font-size: 3.5em;
+    padding: 60px 0 60px 0;
+  }
+  
+  .no-touch {
+    .h-wrap:hover {
+      .mid:before {
+        transform: translateX(-$xl-text-slide);
+      }
+
+      .start {
+        transform: translateX(-$xl-text-slide);
+      }
+
+      .end {
+        transform: translateX($xl-text-slide);
+      }
+    }
+
+    .mid:before,
+    .mid:after {
+      width: $xl-text-slide;
+    }
+  }
+  
+  @include susy-media(min-height $xl-v) {
+    .woohooo-paragraphs {
+      font-size: 1.5em;
+    }
+  }
+}

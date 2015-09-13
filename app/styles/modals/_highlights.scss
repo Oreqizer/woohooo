@@ -1,0 +1,317 @@
+.hl-tab {
+  position: relative;
+  @include span(4);
+  height: 100vh;
+  min-height: $m-v;
+  background: #000;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0); // FPS fix
+}
+
+// Queries:
+@include susy-breakpoint($m, 8) {
+  .events {
+    @include span(4);
+  }
+  
+  .articles {
+    @include span(4);
+  }
+  
+  .sponsors {
+    @include span(8);
+    
+    @include susy-media(max-width $l - 1) {
+      height: 320px;
+      min-height: 320px;
+    }
+  }
+}
+
+@include susy-breakpoint($l, 8) {
+  .hl-big {
+    @include span(3);
+  }
+  
+  .hl-small {
+    @include span(2);
+  }
+}
+
+// Events: ---------------------------------------------------------------------------
+$event-h: 40px;
+$event-d: 120px;
+
+.hl-tab {
+  display: flex;
+  flex-direction: column;
+  padding: 1px;
+}
+
+.event-heading {
+  display: block;
+  padding-left: 50px;
+  height: 40px;
+  line-height: 40px;
+  color: $dark;
+  font-size: 2em;
+  background: $red;
+}
+
+.event {
+  position: relative;
+  flex-grow: 1;
+  overflow: hidden;
+  background: {
+    position: center;
+    size: cover;
+  }
+  
+  &.active {
+    flex-grow: 3;
+    
+    .event-description {
+      transition: opacity .5s;
+      opacity: 1;
+    }
+  }
+}
+
+.event-header,
+.event-description {
+  display: block;
+  position: absolute;
+}
+
+.event-header {
+  height: $event-h;
+  line-height: $event-h;
+  width: 100%;
+  padding-left: 50px;
+  color: #FFF;
+  font: {
+    weight: bold;
+    size: 1.3em;
+  }
+  background: transparentize($dark, .25);
+}
+
+.event-description {
+  height: $event-d;
+  bottom: 0;
+  padding: 5px;
+  font-size: .9em;
+  color: #FFF;
+  text-align: justify;
+  background: transparentize(#000, .5);
+  opacity: 0;
+  transition: none;
+  
+  @include susy-media($m) {
+    font-size: 1em;
+  }
+  
+  @include susy-media($xl) {
+    font-size: 1.3em;
+  }
+}
+
+// BGs:
+.gran-turismo {
+  background-image: url("../images/highlights/events/gran-turismo.jpg");
+}
+
+.diamond-race {
+  background-image: url("../images/highlights/events/diamond-race.jpg");
+}
+
+.auto-masters {
+  background-image: url("../images/highlights/events/auto-master.jpg");
+}
+
+.tuning-grill {
+  background-image: url("../images/highlights/events/tuning-grill.jpg");
+}
+
+.roadlife {
+  background-image: url("../images/highlights/events/roadlife.jpg");
+}
+
+// Modernizr:
+.no-touch {
+  .event:hover {
+    cursor: pointer;
+  }
+}
+
+// Articles: --------------------------------------------------------------------------
+.article-heading {
+  @extend .event-heading;
+  background: $dark;
+  color: $red;
+}
+
+.article {
+  position: relative;
+  flex-grow: 1;
+  border: solid 1px $dark;
+  overflow: hidden;
+  
+  &.active {
+    flex-grow: 5;
+    
+    .article-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.article-img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: {
+    position: center;
+    size: cover;
+  }
+}
+
+.article-overlay {
+  @extend .event-header;
+  background: transparentize($red, .5);
+  text-align: right;
+  padding: 0 10px 0;
+  font-size: 1em;
+  transition: opacity .5s;
+  opacity: 0;
+  
+  @include susy-media($m) {
+    font-size: 1em;
+  }
+  
+  @include susy-media($l) {
+    font-size: 1.1em;
+  }
+  
+  @include susy-media($xl) {
+    font-size: 1.3em;
+  }
+}
+
+.article-link {
+  height: 100px;
+  background: $dark;
+  padding: 10px;
+}
+
+.link-text {
+  color: #FFF;
+  line-height: 80px;
+  font-size: 1.4em;
+  
+  > a {
+    color: $red;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+// BGs:
+.ok {
+  background-image: url('../images/highlights/articles/ok.jpg');
+}
+
+.vip {
+  background-image: url('../images/highlights/articles/vip.jpg');
+}
+
+.metro {
+  background-image: url('../images/highlights/articles/metro.jpg');
+}
+
+// Modernizr:
+.no-touch {
+  .article:hover {
+    cursor: pointer;
+  }
+  
+  .link-text > a:hover {
+    text-decoration: underline;
+  }
+}
+
+// Sponsors: --------------------------------------------------------------------------
+
+
+.sponsors {
+  padding-top: $event-h;
+  
+  @include susy-media($m $l - 1) {
+    flex-direction: row;
+  }
+}
+
+.sponsors-heading {
+  @extend .event-heading;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.sponsor-img {
+  position: relative;
+  flex-grow: 1;
+  display: block;
+  margin: 15px;
+  background: {
+    position: center;
+    size: contain;
+    repeat: no-repeat;
+  }
+}
+
+// BGs:
+.audinn {
+  background-image: url('../images/highlights/sponsors/audinn.svg');
+}
+
+.soul {
+  background-image: url('../images/highlights/sponsors/soul.png');
+}
+
+.diamondrace {
+  background-image: url('../images/highlights/sponsors/diamondrace.png');
+}
+
+.flava {
+  background-image: url('../images/highlights/sponsors/flava.png');
+}
+
+.no-svg {
+  .audinn {
+    background-image: url('../images/highlights/sponsors/audinn.png');
+  }
+  
+  .soul {
+    background-image: url('../images/highlights/sponsors/soul.png');
+  }
+  
+  .diamondrace {
+    background-image: url('../images/highlights/sponsors/diamondrace.png');
+  }
+  
+  .flava {
+    background-image: url('../images/highlights/sponsors/flava.png');
+  }
+}
+
+// Modernizr:
+.no-touch {
+  .sponsor-img {
+    transition: transform .25s;
+    
+    &:hover {
+      transform: scale(.9);
+    }
+  }
+}
